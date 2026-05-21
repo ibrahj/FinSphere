@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>فاين سفير — الاستشارة الثروية الخاصة · المملكة العربية السعودية</title>
+<meta name="description" content="فاين سفير مؤسسة استشارية ثروية خاصة في الرياض. مبنية على العمق المؤسسي. مُقدَّمة بشخصية وتميّز."/>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=DM+Sans:wght@300;400;500&family=Cairo:wght@300;400;500&display=swap');
+
+:root {
+  --bg:       #EAE6DF;
+  --bg1:      #E2DDD6;
+  --bg2:      #D9D4CC;
+  --bg3:      #CEC8BE;
+  --ink:      #1A1814;
+  --ink2:     #2C2925;
+  --ink3:     #504B43;
+  --ink4:     #9A9488;
+  --accent:   #4A5840;
+  --accent2:  #2D3A24;
+  --accent3:  rgba(74,88,64,0.15);
+  --copper:   #8B7355;
+  --line:     rgba(26,24,20,0.1);
+  --line2:    rgba(26,24,20,0.18);
+  --serif:    'Cormorant Garamond', Georgia, serif;
+  --sans:     'DM Sans', system-ui, sans-serif;
+  --arabic:   'Cairo', sans-serif;
+  --ease:     cubic-bezier(0.25,0.1,0.25,1);
+}
+
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { background:var(--bg); color:var(--ink); font-family:var(--arabic); font-weight:300; -webkit-font-smoothing:antialiased; direction:rtl; }
+body.en { font-family:var(--sans); direction:ltr; }
+a { text-decoration:none; color:inherit; }
+button { cursor:pointer; border:none; background:transparent; }
+
+.reveal { opacity:0; transform:translateY(18px); transition:opacity 0.75s var(--ease), transform 0.75s var(--ease); }
+.reveal.visible { opacity:1; transform:none; }
+.delay-1 { transition-delay:0.1s; }
+.delay-2 { transition-delay:0.22s; }
+.delay-3 { transition-delay:0.38s; }
+
+.nav { display:flex; justify-content:space-between; align-items:center; padding:1.75rem 5rem; border-bottom:0.5px solid var(--line); background:var(--bg); position:sticky; top:0; z-index:200; transition:background 0.3s; }
+.nav.scrolled { background:rgba(234,230,223,0.96); backdrop-filter:blur(10px); }
+.nav-logo img { height:58px; width:auto; }
+.nav-links { display:flex; gap:2.5rem; align-items:center; flex-direction:row-reverse; }
+.nav-links a { font-family:var(--arabic); font-size:14px; font-weight:300; color:var(--ink3); transition:color 0.2s; }
+body.en .nav-links { flex-direction:row; }
+body.en .nav-links a { font-family:var(--sans); font-size:10.5px; letter-spacing:0.2em; text-transform:uppercase; }
+.nav-links a:hover { color:var(--ink); }
+.nav-right { display:flex; align-items:center; gap:1.25rem; }
+.btn-nav { font-family:var(--arabic); font-size:13px; font-weight:400; border:0.5px solid var(--accent); color:var(--accent); padding:8px 20px; transition:background 0.2s, color 0.2s; }
+body.en .btn-nav { font-family:var(--sans); font-size:9px; letter-spacing:0.22em; text-transform:uppercase; }
+.btn-nav:hover { background:var(--accent); color:var(--bg); }
+.lang-switch { font-size:10px; letter-spacing:0.2em; text-transform:uppercase; color:var(--ink4); font-family:var(--sans); transition:color 0.2s; }
+.lang-switch:hover { color:var(--accent); }
+.nav-mobile-toggle { display:none; flex-direction:column; gap:5px; padding:6px; }
+.nav-mobile-toggle span { width:22px; height:0.5px; background:var(--ink2); display:block; }
+
+.mobile-menu { display:none; position:fixed; inset:0; background:var(--bg); z-index:300; flex-direction:column; justify-content:center; align-items:center; gap:2.5rem; }
+.mobile-menu.open { display:flex; }
+.mobile-menu a { font-family:var(--arabic); font-size:28px; font-weight:300; color:var(--ink3); }
+body.en .mobile-menu a { font-family:var(--serif); font-size:28px; letter-spacing:0.04em; }
+.mobile-menu a:hover { color:var(--ink); }
+.mobile-menu-close { position:absolute; top:2rem; left:2rem; font-size:22px; color:var(--ink3); }
+
+.hero { min-height:94vh; display:grid; grid-template-columns:55fr 45fr; border-bottom:0.5px solid var(--line); }
+.hero-main { padding:7rem 5rem; display:flex; flex-direction:column; justify-content:center; border-left:0.5px solid var(--line); }
+body.en .hero-main { border-left:none; border-right:0.5px solid var(--line); }
+.hero-eyebrow { font-family:var(--arabic); font-size:11px; color:var(--accent); margin-bottom:3rem; display:flex; align-items:center; gap:1.25rem; flex-direction:row-reverse; justify-content:flex-end; }
+.hero-eyebrow::after { content:''; width:28px; height:0.5px; background:var(--accent); }
+body.en .hero-eyebrow { font-family:var(--sans); font-size:9px; letter-spacing:0.5em; text-transform:uppercase; flex-direction:row; }
+body.en .hero-eyebrow::after { display:none; }
+body.en .hero-eyebrow::before { content:''; width:28px; height:0.5px; background:var(--accent); }
+.hero-h1 { font-family:var(--arabic); font-size:clamp(42px,5vw,66px); font-weight:300; line-height:1.4; color:var(--ink); margin-bottom:2.5rem; }
+body.en .hero-h1 { font-family:var(--serif); font-size:clamp(44px,5.5vw,70px); line-height:1.05; letter-spacing:-0.015em; }
+.hero-h1 em { font-style:italic; color:var(--ink4); }
+.hero-sub { font-family:var(--arabic); font-size:15px; line-height:2.1; color:var(--ink3); max-width:420px; margin-bottom:3.5rem; }
+body.en .hero-sub { font-family:var(--sans); font-size:13.5px; line-height:1.95; }
+.hero-btns { display:flex; align-items:center; gap:1.5rem; flex-direction:row-reverse; }
+body.en .hero-btns { flex-direction:row; }
+
+.hero-side { padding:7rem 5rem 7rem 4rem; display:flex; flex-direction:column; justify-content:center; gap:3rem; }
+body.en .hero-side { padding:7rem 4rem 7rem 5rem; }
+.founder-pull { border-right:0.5px solid var(--accent); padding:2rem 2.5rem 2rem 0; }
+body.en .founder-pull { border-right:none; border-left:0.5px solid var(--accent); padding:2rem 0 2rem 2.5rem; }
+.pull-quote { font-family:var(--arabic); font-size:17px; line-height:1.9; color:var(--ink2); margin-bottom:1.25rem; }
+body.en .pull-quote { font-family:var(--serif); font-size:18px; font-style:italic; line-height:1.65; }
+.pull-attr { font-family:var(--arabic); font-size:11px; color:var(--accent); }
+body.en .pull-attr { font-family:var(--sans); font-size:9px; letter-spacing:0.3em; text-transform:uppercase; }
+.pull-sub { font-family:var(--arabic); font-size:12px; color:var(--ink4); margin-top:4px; }
+body.en .pull-sub { font-family:var(--sans); font-size:11px; }
+.signals { display:flex; flex-direction:column; }
+.signal { display:flex; align-items:flex-start; gap:1rem; padding:0.9rem 0; border-bottom:0.5px solid var(--line); flex-direction:row-reverse; }
+body.en .signal { flex-direction:row; }
+.signal:first-child { border-top:0.5px solid var(--line); }
+.signal-dot { width:3px; height:3px; background:var(--accent); border-radius:50%; margin-top:6px; flex-shrink:0; }
+.signal-text { font-family:var(--arabic); font-size:13px; color:var(--ink3); line-height:1.7; }
+body.en .signal-text { font-family:var(--sans); font-size:12px; }
+
+.stats-bar { display:grid; grid-template-columns:repeat(3,1fr); background:var(--bg1); border-bottom:0.5px solid var(--line); direction:rtl; }
+body.en .stats-bar { direction:ltr; }
+.stat { padding:2.5rem 3.5rem; border-left:0.5px solid var(--line); }
+body.en .stat { border-left:none; border-right:0.5px solid var(--line); }
+.stat:last-child { border-left:none; }
+body.en .stat:last-child { border-right:none; }
+.stat-label { font-family:var(--arabic); font-size:11px; color:var(--ink4); margin-bottom:8px; }
+body.en .stat-label { font-family:var(--sans); font-size:9px; letter-spacing:0.35em; text-transform:uppercase; }
+.stat-value { font-family:var(--serif); font-size:16px; font-weight:300; color:var(--ink2); line-height:1.5; }
+
+.section { padding:7rem 5rem; }
+.section-label { font-family:var(--arabic); font-size:11px; color:var(--accent); margin-bottom:3.5rem; display:flex; align-items:center; gap:1.25rem; flex-direction:row-reverse; justify-content:flex-end; }
+.section-label::after { content:''; width:26px; height:0.5px; background:var(--accent); }
+body.en .section-label { font-family:var(--sans); font-size:9px; letter-spacing:0.5em; text-transform:uppercase; flex-direction:row; }
+body.en .section-label::after { display:none; }
+body.en .section-label::before { content:''; width:26px; height:0.5px; background:var(--accent); }
+.section-h2 { font-family:var(--arabic); font-size:clamp(28px,3.5vw,42px); font-weight:300; line-height:1.5; color:var(--ink); margin-bottom:2.5rem; }
+body.en .section-h2 { font-family:var(--serif); font-size:clamp(30px,3.5vw,44px); line-height:1.12; }
+.section-h2 em { font-style:italic; color:var(--ink4); }
+.body-text { font-family:var(--arabic); font-size:15px; line-height:2.1; color:var(--ink3); }
+body.en .body-text { font-family:var(--sans); font-size:13.5px; line-height:2.0; }
+.body-text strong { color:var(--ink2); font-weight:400; }
+.body-text + .body-text { margin-top:1.5rem; }
+
+.pillars-grid { display:grid; grid-template-columns:repeat(3,1fr); }
+.pillar { padding:2.75rem; border:0.5px solid var(--line); margin:-0.5px 0 0 -0.5px; transition:background 0.3s; }
+.pillar:hover { background:var(--bg1); }
+.pillar-num { font-family:var(--arabic); font-size:11px; color:rgba(74,88,64,0.5); margin-bottom:2rem; }
+body.en .pillar-num { font-family:var(--sans); font-size:9px; letter-spacing:0.4em; }
+.pillar-title { font-family:var(--arabic); font-size:20px; font-weight:300; color:var(--ink); margin-bottom:1rem; line-height:1.5; }
+body.en .pillar-title { font-family:var(--serif); font-size:23px; line-height:1.2; }
+.pillar-desc { font-family:var(--arabic); font-size:13px; line-height:2; color:var(--ink3); }
+body.en .pillar-desc { font-family:var(--sans); font-size:12px; line-height:1.95; }
+.pillar-more { font-family:var(--arabic); font-size:12px; color:var(--accent); margin-top:2rem; display:flex; align-items:center; gap:8px; flex-direction:row-reverse; justify-content:flex-end; }
+body.en .pillar-more { font-family:var(--sans); font-size:9px; letter-spacing:0.22em; text-transform:uppercase; flex-direction:row; }
+.pillar-more::before { content:'←'; font-size:14px; }
+body.en .pillar-more::before { display:none; }
+body.en .pillar-more::after { content:'→'; font-size:14px; }
+
+.two-col { display:grid; grid-template-columns:1fr 1fr; gap:7rem; align-items:center; }
+.portrait-frame { background:var(--bg2); border:0.5px solid var(--line); aspect-ratio:4/5; display:flex; align-items:center; justify-content:center; position:relative; overflow:hidden; }
+.portrait-hint { font-family:var(--arabic); font-size:11px; color:var(--ink4); }
+.portrait-bar { position:absolute; bottom:0; right:0; width:60px; height:2px; background:var(--accent2); }
+body.en .portrait-bar { right:auto; left:0; }
+.pedigree { display:flex; flex-direction:column; margin-top:2.5rem; }
+.pd-row { display:flex; justify-content:space-between; align-items:baseline; padding:1rem 0; border-bottom:0.5px solid var(--line); gap:2rem; flex-direction:row-reverse; }
+body.en .pd-row { flex-direction:row; }
+.pd-row:first-child { border-top:0.5px solid var(--line); }
+.pd-name { font-family:var(--arabic); font-size:14px; color:var(--ink2); }
+body.en .pd-name { font-family:var(--sans); font-size:13px; }
+.pd-role { font-family:var(--arabic); font-size:12px; color:var(--ink4); }
+body.en .pd-role { font-family:var(--sans); font-size:10.5px; letter-spacing:0.06em; }
+
+.persp-grid { display:grid; grid-template-columns:repeat(3,1fr); }
+.persp-card { padding:2.5rem; border:0.5px solid var(--line); margin:-0.5px 0 0 -0.5px; transition:background 0.3s; }
+.persp-card:hover { background:var(--bg1); }
+.persp-tag { font-family:var(--arabic); font-size:10px; color:rgba(74,88,64,0.7); margin-bottom:1.5rem; }
+body.en .persp-tag { font-family:var(--sans); font-size:9px; letter-spacing:0.35em; text-transform:uppercase; }
+.persp-title { font-family:var(--arabic); font-size:18px; font-weight:300; color:var(--ink); line-height:1.6; margin-bottom:0.9rem; }
+body.en .persp-title { font-family:var(--serif); font-size:19px; line-height:1.3; }
+.persp-body { font-family:var(--arabic); font-size:13px; line-height:2; color:var(--ink3); }
+body.en .persp-body { font-family:var(--sans); font-size:12px; line-height:1.9; }
+.persp-more { font-family:var(--arabic); font-size:12px; color:var(--accent); margin-top:1.75rem; display:flex; align-items:center; gap:8px; flex-direction:row-reverse; justify-content:flex-end; }
+body.en .persp-more { font-family:var(--sans); font-size:9px; letter-spacing:0.2em; text-transform:uppercase; flex-direction:row; }
+.persp-more::before { content:'←'; }
+body.en .persp-more::before { display:none; }
+body.en .persp-more::after { content:'→'; }
+
+.trust-band { display:grid; grid-template-columns:repeat(3,1fr); background:var(--bg1); direction:rtl; }
+body.en .trust-band { direction:ltr; }
+.tb { padding:3rem 3.5rem; border-left:0.5px solid var(--line); }
+body.en .tb { border-left:none; border-right:0.5px solid var(--line); }
+.tb:last-child { border-left:none; }
+body.en .tb:last-child { border-right:none; }
+.tb-label { font-family:var(--arabic); font-size:11px; color:var(--accent); margin-bottom:10px; }
+body.en .tb-label { font-family:var(--sans); font-size:9px; letter-spacing:0.38em; text-transform:uppercase; }
+.tb-value { font-family:var(--arabic); font-size:14px; line-height:1.9; color:var(--ink2); }
+body.en .tb-value { font-family:var(--sans); font-size:13px; line-height:1.8; }
+
+.inq-form { display:flex; flex-direction:column; gap:2rem; }
+.inq-field { display:flex; flex-direction:column; gap:8px; }
+.inq-lbl { font-family:var(--arabic); font-size:11px; color:var(--ink4); }
+body.en .inq-lbl { font-family:var(--sans); font-size:9px; letter-spacing:0.38em; text-transform:uppercase; }
+.inq-input { background:transparent; border:none; border-bottom:0.5px solid var(--line2); padding:10px 0; font-family:var(--arabic); font-size:14px; color:var(--ink2); outline:none; transition:border-color 0.2s; text-align:right; }
+body.en .inq-input { font-family:var(--sans); font-size:13px; text-align:left; }
+.inq-input:focus { border-bottom-color:var(--accent); }
+.inq-input::placeholder { color:var(--ink4); }
+.inq-or { display:flex; align-items:center; gap:1.5rem; font-family:var(--arabic); font-size:12px; color:var(--ink4); }
+.inq-or::before, .inq-or::after { content:''; flex:1; height:0.5px; background:var(--line); }
+.wa-btn { display:inline-flex; align-items:center; gap:1rem; border:0.5px solid rgba(74,88,64,0.38); padding:13px 22px; color:var(--accent); font-family:var(--arabic); font-size:13px; transition:background 0.25s; flex-direction:row-reverse; }
+body.en .wa-btn { font-family:var(--sans); font-size:10px; letter-spacing:0.2em; text-transform:uppercase; flex-direction:row; }
+.wa-btn:hover { background:var(--accent3); }
+.wa-icon { width:20px; height:20px; background:var(--accent2); border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:9px; color:var(--bg); font-weight:500; flex-shrink:0; }
+.form-success { display:none; padding:1.5rem; border:0.5px solid rgba(74,88,64,0.35); font-family:var(--arabic); font-size:13px; color:var(--ink3); line-height:1.9; }
+body.en .form-success { font-family:var(--sans); }
+
+.btn-primary { background:var(--accent2); color:var(--bg); padding:13px 32px; font-family:var(--arabic); font-size:14px; font-weight:500; display:inline-block; transition:background 0.25s; border:none; cursor:pointer; }
+body.en .btn-primary { font-family:var(--sans); font-size:10px; letter-spacing:0.26em; text-transform:uppercase; }
+.btn-primary:hover { background:var(--accent); }
+.btn-outline { border:0.5px solid var(--line2); color:var(--ink3); padding:12px 30px; font-family:var(--arabic); font-size:14px; display:inline-block; transition:border-color 0.25s, color 0.25s; }
+body.en .btn-outline { font-family:var(--sans); font-size:10px; letter-spacing:0.22em; text-transform:uppercase; }
+.btn-outline:hover { border-color:var(--accent); color:var(--accent); }
+.btn-text { font-family:var(--arabic); font-size:13px; color:var(--ink3); display:inline-flex; align-items:center; gap:10px; transition:color 0.2s; flex-direction:row-reverse; }
+body.en .btn-text { font-family:var(--sans); font-size:10px; letter-spacing:0.2em; text-transform:uppercase; flex-direction:row; }
+.btn-text::before { content:'←'; color:var(--accent); font-size:15px; }
+body.en .btn-text::before { display:none; }
+body.en .btn-text::after { content:'→'; color:var(--accent); font-size:15px; }
+
+.footer { padding:5rem 5rem 3.5rem; display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:3rem; direction:rtl; }
+body.en .footer { direction:ltr; }
+.ft-logo-name { font-family:var(--serif); font-size:18px; font-weight:300; letter-spacing:0.1em; color:var(--ink); margin-bottom:4px; }
+.ft-logo-ar { font-family:var(--arabic); font-size:14px; color:var(--ink4); direction:rtl; margin-bottom:1.25rem; }
+.ft-desc { font-family:var(--arabic); font-size:12px; line-height:1.9; color:var(--ink3); max-width:240px; margin-bottom:1.5rem; }
+body.en .ft-desc { font-family:var(--sans); }
+.ft-reg { font-family:var(--arabic); font-size:10px; color:rgba(74,88,64,0.55); }
+body.en .ft-reg { font-family:var(--sans); font-size:9px; letter-spacing:0.22em; text-transform:uppercase; }
+.ft-col-h { font-family:var(--arabic); font-size:11px; color:var(--ink4); margin-bottom:1.25rem; }
+body.en .ft-col-h { font-family:var(--sans); font-size:9px; letter-spacing:0.38em; text-transform:uppercase; }
+.ft-col a { display:block; font-family:var(--arabic); font-size:13px; color:var(--ink3); margin-bottom:0.8rem; transition:color 0.2s; }
+body.en .ft-col a { font-family:var(--sans); font-size:12px; }
+.ft-col a:hover { color:var(--accent); }
+.footer-bottom { padding:2rem 5rem; border-top:0.5px solid var(--line); display:flex; justify-content:space-between; align-items:center; flex-direction:row-reverse; }
+body.en .footer-bottom { flex-direction:row; }
+.ft-legal { font-family:var(--arabic); font-size:11px; color:var(--ink4); line-height:1.8; max-width:580px; }
+body.en .ft-legal { font-family:var(--sans); font-size:10px; letter-spacing:0.04em; }
+
+.border-b { border-bottom:0.5px solid var(--line); }
+.border-t { border-top:0.5px solid var(--line); }
+.bg1 { background:var(--bg1); }
+.bg2 { background:var(--bg2); }
+
+@media (max-width:1100px) {
+  .nav, .section, .footer { padding-left:3rem; padding-right:3rem; }
+  .hero { grid-template-columns:1fr; min-height:auto; }
+  .hero-main { border-left:none; border-bottom:0.5px solid var(--line); }
+  .two-col, .pillars-grid { grid-template-columns:1fr; }
+  .persp-grid { grid-template-columns:repeat(2,1fr); }
+  .trust-band { grid-template-columns:1fr; }
+  .tb { border-left:none; border-bottom:0.5px solid var(--line); }
+  .stats-bar { grid-template-columns:1fr; }
+  .stat { border-left:none; border-bottom:0.5px solid var(--line); }
+  .footer { grid-template-columns:1fr 1fr; }
+}
+@media (max-width:768px) {
+  .nav { padding:1.5rem; }
+  .nav-links, .nav-right .btn-nav { display:none; }
+  .nav-mobile-toggle { display:flex; }
+  .section { padding:4rem 1.5rem; }
+  .hero-main, .hero-side { padding:4rem 1.5rem; }
+  .persp-grid, .pillars-grid { grid-template-columns:1fr; }
+  .footer { grid-template-columns:1fr; padding:3rem 1.5rem; }
+  .footer-bottom { padding:1.5rem; flex-direction:column; align-items:flex-start; gap:1rem; }
+}
+</style>
+</head>
+<body>
+
+<div class="mobile-menu">
+  <button class="mobile-menu-close">✕</button>
+  <a href="index.html">الرئيسية</a>
+  <a href="about.html">المؤسس</a>
+  <a href="services.html">الاستشارات</a>
+  <a href="perspectives.html">وجهات النظر</a>
+  <a href="contact.html">استفسار خاص</a>
+  <a href="en/index.html" style="font-family:'DM Sans',sans-serif;font-size:16px;letter-spacing:0.2em;">English</a>
+</div>
+
+<header>
+<nav class="nav">
+  <a href="index.html" class="nav-logo"><img src="data:image/png;base64,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" alt="FineSphere" style="height:52px;width:auto;"/></a>
+  <div class="nav-links">
+    <a href="contact.html">تواصل معنا</a>
+    <a href="perspectives.html">وجهات النظر</a>
+    <a href="services.html">الاستشارات</a>
+    <a href="about.html">المؤسس</a>
+  </div>
+  <div class="nav-right">
+    <a href="en/index.html" class="lang-switch">EN</a>
+    <a href="contact.html" class="btn-nav">استفسار خاص</a>
+    <button class="nav-mobile-toggle"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+</header>
+
+<main>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-main reveal">
+    <p class="hero-eyebrow">الاستشارة الثروية الخاصة · الرياض، المملكة العربية السعودية</p>
+    <h1 class="hero-h1 reveal delay-1">
+      استشارة استراتيجية<br>
+      للثروة المدروسة<br>
+      <em>والمستدامة.</em>
+    </h1>
+    <p class="hero-sub reveal delay-2">
+      فاين سفير تقدّم استشاراتها للأفراد والعائلات وأصحاب الأعمال ذوي الثروات في مسيرتهم نحو قرارات مالية معقدة. مؤسسة على عمق مؤسسي حقيقي. مُقدَّمة باهتمام شخصي كامل.
+    </p>
+    <div class="hero-btns reveal delay-3">
+      <a href="contact.html" class="btn-primary">ابدأ محادثة خاصة</a>
+      <a href="services.html" class="btn-text">خدمات الاستشارة</a>
+    </div>
+  </div>
+  <div class="hero-side reveal delay-2">
+    <div class="founder-pull">
+      <p class="pull-quote">
+        "قضيت سنوات طويلة داخل المؤسسات التي تُصنع فيها القرارات المالية الكبرى في المملكة. أنشأت فاين سفير لأحمل هذا المستوى من التفكير مباشرةً إلى الأفراد والعائلات التي تستحقه."
+      </p>
+      <p class="pull-attr">المؤسس · فاين سفير</p>
+      <p class="pull-sub">أكثر من عقدين في أسواق رأس المال السعودية والخليجية</p>
+    </div>
+    <div class="signals">
+      <div class="signal"><div class="signal-dot"></div><span class="signal-text">خبرة مؤسسية في أبرز البيئات المالية والاستراتيجية في المملكة</span></div>
+      <div class="signal"><div class="signal-dot"></div><span class="signal-text">مشاركة مباشرة في المشاريع الكبرى والتخطيط الاستراتيجي ضمن رؤية 2030</span></div>
+      <div class="signal"><div class="signal-dot"></div><span class="signal-text">مرخّص من هيئة السوق المالية · خيارات متوافقة مع أحكام الشريعة الإسلامية</span></div>
+      <div class="signal"><div class="signal-dot"></div><span class="signal-text">استشارة مستقلة وخالية من تعارض المصالح — كل عميل يتواصل مباشرة مع المؤسس</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS BAR -->
+<div class="stats-bar border-b">
+  <div class="stat">
+    <p class="stat-label">الوضع التنظيمي</p>
+    <p class="stat-value">مرخّص من هيئة السوق المالية<br>المملكة العربية السعودية</p>
+  </div>
+  <div class="stat">
+    <p class="stat-label">خبرة المؤسس</p>
+    <p class="stat-value">أكثر من ٢٠ عامًا · أدوار استشارية<br>مؤسسية رفيعة المستوى</p>
+  </div>
+  <div class="stat">
+    <p class="stat-label">نموذج الاستشارة</p>
+    <p class="stat-value">مستقل · سري · بقيادة المؤسس<br>خالٍ من تعارض المصالح</p>
+  </div>
+</div>
+
+<!-- PHILOSOPHY -->
+<section class="section border-b reveal">
+  <div style="display:grid;grid-template-columns:1fr 2fr;gap:6rem;align-items:start;">
+    <div><p class="section-label">فلسفة الاستشارة</p></div>
+    <div>
+      <h2 class="section-h2">إدارة الثروة بامتياز<br>تبدأ بسؤال،<br><em>لا بمنتج.</em></h2>
+      <p class="body-text">معظم علاقات الاستشارة تبدأ بمراجعة المحفظة الاستثمارية. في فاين سفير، تبدأ بشكل مختلف — بمحادثة حقيقية حول ما تحتاج ثروتك إلى تحقيقه. من أجلك، ومن أجل عائلتك، ومن أجل العقد القادم.</p>
+      <p class="body-text"><strong>وضوح الهدف يشكّل كل تخصيص وكل هيكل وكل قرار.</strong> دون وضوح الهدف، حتى أفضل النصائح تقنيًا تُخطئ النقطة الأساسية. فاين سفير وُجدت تحديدًا لأن هذا النوع من الاستشارة نادر. نحن هنا لتغيير ذلك.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="section border-b" style="padding-top:0;">
+  <p class="section-label">خدمات الاستشارة</p>
+  <div class="pillars-grid">
+    <div class="pillar reveal"><p class="pillar-num">٠١</p><h3 class="pillar-title">هيكلة الثروات الخاصة</h3><p class="pillar-desc">تصميم محافظ استثمارية مخصصة للعائلات والأفراد ذوي الاحتياجات المتعددة — عبر الحدود، متعددة الأجيال، أو متوافقة مع أحكام الشريعة.</p><a href="services.html" class="pillar-more">استكشف هذه الخدمة</a></div>
+    <div class="pillar reveal delay-1"><p class="pillar-num">٠٢</p><h3 class="pillar-title">الاستشارة الاستثمارية المستقلة</h3><p class="pillar-desc">تحليل مستقل للأسواق ورؤية استراتيجية عبر الأسواق السعودية والخليجية والعالمية. تشكّلت من الداخل. تُقدَّم بلا أجندة.</p><a href="services.html" class="pillar-more">استكشف هذه الخدمة</a></div>
+    <div class="pillar reveal delay-2"><p class="pillar-num">٠٣</p><h3 class="pillar-title">استمرارية الثروة العائلية</h3><p class="pillar-desc">هياكل الحوكمة وأطر التخطيط للخلافة ونقل الثروة عبر الأجيال. بالدقة والتقدير الذي يستحقه الإرث.</p><a href="services.html" class="pillar-more">استكشف هذه الخدمة</a></div>
+    <div class="pillar reveal"><p class="pillar-num">٠٤</p><h3 class="pillar-title">استشارات أصحاب الأعمال</h3><p class="pillar-desc">لرواد الأعمال وأصحاب الشركات العائلية عند تنقلهم في أحداث السيولة والخلافة وفصل الثروة الشخصية عن الأعمال.</p><a href="services.html" class="pillar-more">استكشف هذه الخدمة</a></div>
+    <div class="pillar reveal delay-1"><p class="pillar-num">٠٥</p><h3 class="pillar-title">الاستثمار المتوافق مع الشريعة</h3><p class="pillar-desc">فحص شرعي دقيق للأسهم والصكوك والأصول الحقيقية والهياكل الخاصة. مع إشراف علمي مناسب وامتثال كامل.</p><a href="services.html" class="pillar-more">استكشف هذه الخدمة</a></div>
+    <div class="pillar reveal delay-2"><p class="pillar-num">٠٦</p><h3 class="pillar-title">الوصول إلى رأس المال الاستراتيجي</h3><p class="pillar-desc">وصول مُنتقى إلى الأسهم الخاصة والأصول الحقيقية والفرص المتوافقة مع رؤية 2030 للعملاء المؤهلين.</p><a href="services.html" class="pillar-more">استكشف هذه الخدمة</a></div>
+  </div>
+</section>
+
+<!-- FOUNDER -->
+<section class="section border-b bg1">
+  <p class="section-label">المؤسس</p>
+  <div class="two-col">
+    <div class="portrait-frame reveal">
+      <div style="display:flex;flex-direction:column;align-items:center;gap:12px;">
+        <p style="font-family:'Cormorant Garamond',serif;font-size:56px;font-weight:300;color:rgba(28,26,23,0.08);">FS</p>
+        <p class="portrait-hint">صورة المؤسس</p>
+      </div>
+      <div class="portrait-bar"></div>
+    </div>
+    <div class="reveal delay-1">
+      <h2 class="section-h2">دقة مؤسسية.<br>مسؤولية شخصية.<br>بلا وسطاء.</h2>
+      <p class="body-text">تأسست فاين سفير على يد ممارس حقيقي أمضى <strong>عقدين في قلب أهم البيئات المالية والاستراتيجية في المملكة العربية السعودية</strong> — بما فيها أدوار استشارية رفيعة في مؤسسات إقليمية مرموقة، ومشاركة مباشرة في الاستشارات المتعلقة بالمشاريع الكبرى.</p>
+      <p class="body-text"><strong>عندما تتعاقد مع فاين سفير، تتعاقد مع المؤسس مباشرةً.</strong> لا يوجد محللون مبتدئون يديرون علاقتك. لا توجد تفويضات متنافسة. اهتمام كامل وغير منقسم.</p>
+      <div class="pedigree">
+        <div class="pd-row"><span class="pd-name">أدوار استشارية رفيعة</span><span class="pd-role">مؤسسات مالية سعودية من الدرجة الأولى</span></div>
+        <div class="pd-row"><span class="pd-name">مشاريع رؤية 2030 الاستراتيجية</span><span class="pd-role">مشاركة مباشرة</span></div>
+        <div class="pd-row"><span class="pd-name">بيئات المشاريع الكبرى</span><span class="pd-role">تفاعل استراتيجي متعدد السنوات</span></div>
+        <div class="pd-row"><span class="pd-name">أسواق رأس المال السعودية والخليجية</span><span class="pd-role">خبرة عابرة للحدود</span></div>
+      </div>
+      <div style="margin-top:2.5rem;"><a href="about.html" class="btn-outline">الملف الكامل للمؤسس</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- PERSPECTIVES -->
+<section class="section border-b">
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:end;margin-bottom:4rem;">
+    <div><p class="section-label">وجهات النظر الاستراتيجية</p><h2 class="section-h2">تفكير تشكّل<br>بالتجربة،<br><em>لا بالنظرية.</em></h2></div>
+    <p class="body-text">تشارك فاين سفير وجهات نظر مُنتقاة حول أسواق المملكة واتجاهات الاستثمار الإقليمية واستراتيجية الثروة — ليس للنشر، بل لإظهار جودة التفكير الذي يمكن للعملاء توقعه في الخاص.</p>
+  </div>
+  <div class="persp-grid">
+    <div class="persp-card reveal"><p class="persp-tag">ذكاء السوق السعودي</p><h3 class="persp-title">الواقع الجديد للثروة الخاصة السعودية بعد 2030</h3><p class="persp-body">مع نضوج تحولات رؤية 2030، يطرح جيل جديد من أصحاب رأس المال السعودي تساؤلات جوهرية مختلفة حول الحفاظ على الثروة والإرث.</p><a href="perspectives.html" class="persp-more">اقرأ وجهة النظر</a></div>
+    <div class="persp-card reveal delay-1"><p class="persp-tag">رأس المال الإقليمي</p><h3 class="persp-title">مكاتب العائلة في دول الخليج: من التراكم إلى الحوكمة</h3><p class="persp-body">أكثر ثروات الخليج لم تعد تستثمر فحسب — بل تبني مؤسسات. هذا التحول يتطلب نوعًا مختلفًا جوهريًا من المستشارين.</p><a href="perspectives.html" class="persp-more">اقرأ وجهة النظر</a></div>
+    <div class="persp-card reveal delay-2"><p class="persp-tag">تفكير استشاري</p><h3 class="persp-title">لماذا تهم الاستشارة المستقلة أكثر من أي وقت مضى</h3><p class="persp-body">في سوق حيث معظم المستشارين يحفّزهم العمولة، يمثل النموذج المستقل ليس مجرد موقف أخلاقي — بل ميزة هيكلية تتراكم لصالح العميل.</p><a href="perspectives.html" class="persp-more">اقرأ وجهة النظر</a></div>
+  </div>
+</section>
+
+<!-- TRUST BAND -->
+<div class="trust-band border-b border-t">
+  <div class="tb"><p class="tb-label">الامتثال التنظيمي</p><p class="tb-value">مرخّص من هيئة السوق المالية في المملكة العربية السعودية. جميع خدمات الاستشارة تُقدَّم وفق الأطر التنظيمية المعتمدة.</p></div>
+  <div class="tb"><p class="tb-label">سرية العملاء</p><p class="tb-value">تحكم جميع العلاقات بروتوكولات صارمة للسرية. الخصوصية في فاين سفير ليست سياسة — بل مبدأ تأسيسي راسخ.</p></div>
+  <div class="tb"><p class="tb-label">الامتثال الشرعي</p><p class="tb-value">هياكل استثمارية متوافقة مع الشريعة الإسلامية متاحة عبر الأسهم والصكوك والأصول البديلة مع إشراف علمي مناسب.</p></div>
+</div>
+
+<!-- INQUIRY -->
+<section class="section border-b">
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:7rem;align-items:start;">
+    <div>
+      <p class="section-label">استفسار خاص</p>
+      <h2 class="section-h2">كل علاقة جادة<br>تبدأ بمحادثة<br>واحدة.</h2>
+      <p class="body-text" style="max-width:360px;margin-bottom:1.5rem;">لا عروض تقديمية. لا مساعدين. لا التزامات. ستتحدث مع المؤسس مباشرةً. جميع الاستفسارات تُعامَل بسرية تامة ويُردّ عليها شخصيًا خلال ٢٤ ساعة.</p>
+      <p style="font-family:'Cairo',sans-serif;font-size:11px;color:rgba(139,115,85,0.7);">الرياض، المملكة العربية السعودية · مرخّص من هيئة السوق المالية</p>
+    </div>
+    <form class="inq-form" novalidate>
+      <div class="inq-field"><label class="inq-lbl">اسمك</label><input class="inq-input" type="text" placeholder="كما تُحبّ أن تُنادى"/></div>
+      <div class="inq-field"><label class="inq-lbl">موضوع الاستفسار</label><input class="inq-input" type="text" placeholder="باختصار، إن أردت المشاركة"/></div>
+      <div class="inq-field"><label class="inq-lbl">وسيلة التواصل المفضّلة</label><input class="inq-input" type="text" placeholder="البريد الإلكتروني أو رقم الهاتف"/></div>
+      <div class="inq-or">أو</div>
+      <a href="https://wa.me/966500000000" class="wa-btn" target="_blank" rel="noopener"><div class="wa-icon">W</div><span>تواصل عبر واتساب</span></a>
+      <button type="submit" class="btn-primary" style="align-self:flex-end;">إرسال استفسار خاص</button>
+      <div class="form-success">تم استلام استفساركم. سيتواصل معك المؤسس شخصيًا خلال ٢٤ ساعة.</div>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="footer border-t">
+    <div>
+      <p class="ft-logo-name">FineSphere</p>
+      <p class="ft-logo-ar">فاين سفير · للاستشارات المالية الخاصة</p>
+      <p class="ft-desc">استشارة ثروية خاصة للعائلات وأصحاب الأعمال والمستثمرين في المملكة العربية السعودية ودول الخليج.</p>
+      <p class="ft-reg">مرخّص من هيئة السوق المالية · الرياض</p>
+    </div>
+    <div class="ft-col"><p class="ft-col-h">الاستشارات</p><a href="services.html">هيكلة الثروات</a><a href="services.html">الاستشارة الاستثمارية</a><a href="services.html">استمرارية الثروة العائلية</a><a href="services.html">الاستثمار الشرعي</a></div>
+    <div class="ft-col"><p class="ft-col-h">الشركة</p><a href="about.html">المؤسس</a><a href="index.html">فلسفتنا</a><a href="perspectives.html">وجهات النظر</a><a href="contact.html">الإفصاح التنظيمي</a></div>
+    <div class="ft-col"><p class="ft-col-h">تواصل</p><a href="contact.html">استفسار خاص</a><a href="https://wa.me/966500000000">واتساب مباشر</a><a href="en/index.html" style="font-family:'DM Sans',sans-serif;font-size:11px;letter-spacing:0.15em;">English Version</a></div>
+  </div>
+  <div class="footer-bottom">
+    <p class="ft-legal">© ٢٠٢٥ فاين سفير للاستشارات. مرخّصة من هيئة السوق المالية في المملكة العربية السعودية. جميع الخدمات الاستشارية خاضعة للامتثال التنظيمي. الاستثمار ينطوي على مخاطر.</p>
+    <p style="font-family:'DM Sans',sans-serif;font-size:10px;color:var(--ink4);letter-spacing:0.1em;">Privacy · Disclosure · Terms</p>
+  </div>
+</footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const nav = document.querySelector('.nav');
+  if (nav) {
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 50);
+    });
+  }
+
+  const toggle = document.querySelector('.nav-mobile-toggle');
+  const menu   = document.querySelector('.mobile-menu');
+  const close  = document.querySelector('.mobile-menu-close');
+  if (toggle && menu) toggle.addEventListener('click', () => menu.classList.add('open'));
+  if (close  && menu) close.addEventListener('click',  () => menu.classList.remove('open'));
+  document.querySelectorAll('.mobile-menu a').forEach(l => l.addEventListener('click', () => menu && menu.classList.remove('open')));
+
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  const form = document.querySelector('.inq-form');
+  if (form) {
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      const btn = form.querySelector('[type=submit]');
+      const success = form.querySelector('.form-success');
+      if (btn) btn.style.display = 'none';
+      if (success) success.style.display = 'block';
+    });
+  }
+});
+</script>
+</body>
+</html>

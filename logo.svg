@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 90" fill="none">
+  <!-- Abstract sphere: outer circle + orbital line + dot -->
+  <circle cx="32" cy="32" r="22" stroke="#8B7355" stroke-width="0.75"/>
+  <ellipse cx="32" cy="32" rx="22" ry="9" stroke="#8B7355" stroke-width="0.75" transform="rotate(-20 32 32)"/>
+  <circle cx="50" cy="20" r="2" fill="#8B7355"/>
+  <!-- Wordmark -->
+  <text x="66" y="28" font-family="'Cormorant Garamond', Georgia, serif" font-size="22" font-weight="300" letter-spacing="6" fill="#1A1A17">FINESPHERE</text>
+  <text x="66" y="46" font-family="'Cairo', sans-serif" font-size="13" font-weight="300" fill="#8B7355" direction="rtl" text-anchor="start">فاينسفير</text>
+  <line x1="66" y1="56" x2="290" y2="56" stroke="rgba(139,115,85,0.35)" stroke-width="0.5"/>
+  <text x="66" y="69" font-family="'Cormorant Garamond', serif" font-size="8.5" font-weight="300" letter-spacing="3.5" fill="rgba(139,115,85,0.7)">FINANCIAL ADVISORY</text>
+</svg>

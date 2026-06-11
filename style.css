@@ -85,7 +85,7 @@ body.en .pull-attr { font-family:var(--sans); font-size:9px; letter-spacing:0.3e
 .pull-sub { font-family:var(--arabic); font-size:12px; color:var(--ink4); margin-top:4px; }
 body.en .pull-sub { font-family:var(--sans); font-size:11px; }
 .signals { display:flex; flex-direction:column; }
-.signal { display:flex; align-items:flex-start; gap:1rem; padding:0.9rem 0; border-bottom:0.5px solid var(--line); flex-direction:row-reverse; }
+.signal { display:flex; align-items:flex-start; gap:1rem; padding:0.9rem 0; border-bottom:0.5px solid var(--line); flex-direction:row-reverse; direction:rtl; justify-content:flex-start; }
 body.en .signal { flex-direction:row; }
 .signal:first-child { border-top:0.5px solid var(--line); }
 .signal-dot { width:3px; height:3px; background:var(--accent); border-radius:50%; margin-top:6px; flex-shrink:0; }

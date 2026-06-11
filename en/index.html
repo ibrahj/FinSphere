@@ -3,259 +3,180 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Finsphere — Private Wealth Advisory · Saudi Arabia</title>
-<meta name="description" content="Finsphere is a private wealth advisory firm in Jeddah, Saudi Arabia. Built on institutional depth. Delivered personally."/>
+<title>Finsphere — Financial, Management & Strategic Advisory · Saudi Arabia</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=DM+Sans:wght@300;400;500&family=Cairo:wght@300;400;500&display=swap');
-:root{--bg:#EAE6DF;--bg1:#E2DDD6;--bg2:#D9D4CC;--bg3:#CEC8BE;--ink:#1A1814;--ink2:#2C2925;--ink3:#504B43;--ink4:#9A9488;--accent:#4A5840;--accent2:#2D3A24;--accent3:rgba(74,88,64,0.15);--copper:#8B7355;--line:rgba(26,24,20,0.1);--line2:rgba(26,24,20,0.18);--serif:'Cormorant Garamond',Georgia,serif;--sans:'DM Sans',system-ui,sans-serif;--arabic:'Cairo',sans-serif;--ease:cubic-bezier(0.25,0.1,0.25,1);}
+:root{--bg:#EAE6DF;--bg1:#E2DDD6;--bg2:#D9D4CC;--ink:#1A1814;--ink2:#2C2925;--ink3:#504B43;--ink4:#9A9488;--accent:#4A5840;--accent2:#2D3A24;--accent3:rgba(74,88,64,0.15);--line:rgba(26,24,20,0.1);--line2:rgba(26,24,20,0.18);--serif:'Cormorant Garamond',Georgia,serif;--sans:'DM Sans',system-ui,sans-serif;--arabic:'Cairo',sans-serif;--ease:cubic-bezier(0.25,0.1,0.25,1);}
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}html{scroll-behavior:smooth;}
-body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-weight:300;-webkit-font-smoothing:antialiased;direction:ltr;}
+body{background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased;}
+body.ar{font-family:var(--arabic);font-weight:300;direction:rtl;}
+body.en{font-family:var(--sans);font-weight:300;direction:ltr;}
 a{text-decoration:none;color:inherit;}button{cursor:pointer;border:none;background:transparent;}
-.reveal{opacity:0;transform:translateY(18px);transition:opacity 0.75s var(--ease),transform 0.75s var(--ease);}.reveal.visible{opacity:1;transform:none;}
+.reveal{opacity:0;transform:translateY(18px);transition:opacity 0.75s var(--ease),transform 0.75s var(--ease);}
+.reveal.visible{opacity:1;transform:none;}
 .delay-1{transition-delay:0.1s;}.delay-2{transition-delay:0.22s;}.delay-3{transition-delay:0.38s;}
-.nav{display:flex;justify-content:space-between;align-items:center;padding:1.75rem 5rem;border-bottom:0.5px solid var(--line);background:var(--bg);position:sticky;top:0;z-index:200;transition:background 0.3s;}
+.nav{display:flex;justify-content:space-between;align-items:center;padding:1.5rem 5rem;border-bottom:0.5px solid var(--line);background:var(--bg);position:sticky;top:0;z-index:200;transition:background 0.3s;}
 .nav.scrolled{background:rgba(234,230,223,0.96);backdrop-filter:blur(10px);}
-.nav-logo img{height:52px;width:auto;}
-.nav-links{display:flex;gap:2.5rem;align-items:center;flex-direction:row-reverse;}
-.nav-links a{font-family:var(--arabic);font-size:14px;font-weight:300;color:var(--ink3);transition:color 0.2s;}
+.nav-logo img{height:64px;width:auto;}
+.nav-links{display:flex;gap:2rem;align-items:center;}
+body.ar .nav-links{flex-direction:row-reverse;}
+.nav-links a{font-weight:300;color:var(--ink3);transition:color 0.2s;}
+body.en .nav-links a{font-family:var(--sans);font-size:10px;letter-spacing:0.18em;text-transform:uppercase;}
+body.ar .nav-links a{font-family:var(--arabic);font-size:13px;}
 .nav-links a:hover,.nav-links a.active{color:var(--ink);}
 .nav-right{display:flex;align-items:center;gap:1.25rem;}
-.btn-nav{font-family:var(--arabic);font-size:13px;font-weight:400;border:0.5px solid var(--accent);color:var(--accent);padding:8px 20px;transition:background 0.2s,color 0.2s;}
+.btn-nav{font-weight:400;border:0.5px solid var(--accent);color:var(--accent);padding:8px 20px;transition:background 0.2s,color 0.2s;}
+body.en .btn-nav{font-family:var(--sans);font-size:9px;letter-spacing:0.22em;text-transform:uppercase;}
+body.ar .btn-nav{font-family:var(--arabic);font-size:13px;}
 .btn-nav:hover{background:var(--accent);color:var(--bg);}
-.lang-switch{font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--ink4);font-family:var(--sans);transition:color 0.2s;}
+.lang-switch{font-size:10px;letter-spacing:0.15em;text-transform:uppercase;color:var(--ink4);transition:color 0.2s;}
+body.ar .lang-switch{font-family:var(--sans);}
+body.en .lang-switch{font-family:var(--arabic);font-size:13px;letter-spacing:0;}
 .lang-switch:hover{color:var(--accent);}
 .nav-mobile-toggle{display:none;flex-direction:column;gap:5px;padding:6px;}
 .nav-mobile-toggle span{width:22px;height:0.5px;background:var(--ink2);display:block;}
 .mobile-menu{display:none;position:fixed;inset:0;background:var(--bg);z-index:300;flex-direction:column;justify-content:center;align-items:center;gap:2.5rem;}
 .mobile-menu.open{display:flex;}
-.mobile-menu a{font-family:var(--arabic);font-size:28px;font-weight:300;color:var(--ink3);}
+body.ar .mobile-menu a{font-family:var(--arabic);font-size:26px;font-weight:300;color:var(--ink3);}
+body.en .mobile-menu a{font-family:var(--serif);font-size:26px;font-weight:300;color:var(--ink3);letter-spacing:0.04em;}
 .mobile-menu a:hover{color:var(--ink);}
-.mobile-menu-close{position:absolute;top:2rem;left:2rem;font-size:22px;color:var(--ink3);}
+.mobile-menu-close{position:absolute;top:2rem;font-size:22px;color:var(--ink3);}
+body.ar .mobile-menu-close{left:2rem;}body.en .mobile-menu-close{right:2rem;}
 .section{padding:7rem 5rem;}
-.section-label{font-family:var(--arabic);font-size:11px;color:var(--accent);margin-bottom:3.5rem;display:flex;align-items:center;gap:1.25rem;flex-direction:row-reverse;justify-content:flex-end;}
-.section-label::after{content:'';width:26px;height:0.5px;background:var(--accent);}
-.section-h2{font-family:var(--arabic);font-size:clamp(28px,3.5vw,42px);font-weight:300;line-height:1.5;color:var(--ink);margin-bottom:2.5rem;}
+.section-label{font-size:11px;color:var(--accent);margin-bottom:3.5rem;display:flex;align-items:center;gap:1.25rem;}
+body.ar .section-label{font-family:var(--arabic);flex-direction:row-reverse;justify-content:flex-end;}
+body.ar .section-label::after{content:'';width:26px;height:0.5px;background:var(--accent);}
+body.en .section-label{font-family:var(--sans);font-size:9px;letter-spacing:0.5em;text-transform:uppercase;}
+body.en .section-label::before{content:'';width:26px;height:0.5px;background:var(--accent);}
+body.ar .section-h2{font-family:var(--arabic);font-size:clamp(28px,3.5vw,42px);font-weight:300;line-height:1.5;color:var(--ink);margin-bottom:2.5rem;}
+body.en .section-h2{font-family:var(--serif);font-size:clamp(30px,3.5vw,44px);font-weight:300;line-height:1.12;letter-spacing:-0.01em;color:var(--ink);margin-bottom:2.5rem;}
 .section-h2 em{font-style:italic;color:var(--ink4);}
-.body-text{font-family:var(--arabic);font-size:15px;line-height:2.1;color:var(--ink3);}
-.body-text strong{color:var(--ink2);font-weight:400;}
-.body-text+.body-text{margin-top:1.5rem;}
-.border-b{border-bottom:0.5px solid var(--line);}
-.border-t{border-top:0.5px solid var(--line);}
-.bg1{background:var(--bg1);}
-.btn-primary{background:var(--accent2);color:var(--bg);padding:13px 32px;font-family:var(--arabic);font-size:14px;font-weight:500;display:inline-block;transition:background 0.25s;border:none;cursor:pointer;}
+body.ar .body-text{font-family:var(--arabic);font-size:15px;line-height:2.1;color:var(--ink3);}
+body.en .body-text{font-family:var(--sans);font-size:13.5px;line-height:2.0;color:var(--ink3);}
+.body-text strong{color:var(--ink2);font-weight:400;}.body-text+.body-text{margin-top:1.5rem;}
+.border-b{border-bottom:0.5px solid var(--line);}.border-t{border-top:0.5px solid var(--line);}.bg1{background:var(--bg1);}
+.btn-primary{background:var(--accent2);color:var(--bg);padding:13px 32px;font-weight:500;display:inline-block;transition:background 0.25s;border:none;cursor:pointer;}
+body.ar .btn-primary{font-family:var(--arabic);font-size:14px;}
+body.en .btn-primary{font-family:var(--sans);font-size:10px;letter-spacing:0.26em;text-transform:uppercase;}
 .btn-primary:hover{background:var(--accent);}
-.btn-outline{border:0.5px solid var(--line2);color:var(--ink3);padding:12px 30px;font-family:var(--arabic);font-size:14px;display:inline-block;transition:border-color 0.25s,color 0.25s;}
+.btn-outline{border:0.5px solid var(--line2);color:var(--ink3);padding:12px 30px;display:inline-block;transition:border-color 0.25s,color 0.25s;}
+body.ar .btn-outline{font-family:var(--arabic);font-size:14px;}
+body.en .btn-outline{font-family:var(--sans);font-size:10px;letter-spacing:0.22em;text-transform:uppercase;}
 .btn-outline:hover{border-color:var(--accent);color:var(--accent);}
-.btn-text{font-family:var(--arabic);font-size:13px;color:var(--ink3);display:inline-flex;align-items:center;gap:10px;transition:color 0.2s;flex-direction:row-reverse;}
-.btn-text::before{content:'←';color:var(--accent);font-size:15px;}
-.signal{display:flex;align-items:flex-start;gap:1rem;padding:0.9rem 0;border-bottom:0.5px solid var(--line);flex-direction:row-reverse;}
-.signal:first-child{border-top:0.5px solid var(--line);}
-.signal-dot{width:4px;height:4px;background:var(--accent);border-radius:50%;margin-top:7px;flex-shrink:0;}
-.signal-text{font-family:var(--arabic);font-size:13px;color:var(--ink3);line-height:1.7;text-align:right;}
-.footer{padding:5rem 5rem 3.5rem;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;direction:rtl;}
-.ft-logo-name{font-family:var(--serif);font-size:18px;font-weight:300;letter-spacing:0.1em;color:var(--ink);margin-bottom:4px;}
-.ft-logo-ar{font-family:var(--arabic);font-size:14px;color:var(--ink4);direction:rtl;margin-bottom:1.25rem;}
-.ft-desc{font-family:var(--arabic);font-size:12px;line-height:1.9;color:var(--ink3);max-width:240px;margin-bottom:1.5rem;}
-.ft-reg{font-family:var(--arabic);font-size:10px;color:rgba(74,88,64,0.55);}
-.ft-col-h{font-family:var(--arabic);font-size:11px;color:var(--ink4);margin-bottom:1.25rem;}
-.ft-col a{display:block;font-family:var(--arabic);font-size:13px;color:var(--ink3);margin-bottom:0.8rem;transition:color 0.2s;}
-.ft-col a:hover{color:var(--accent);}
-.footer-bottom{padding:2rem 5rem;border-top:0.5px solid var(--line);display:flex;justify-content:space-between;align-items:center;flex-direction:row-reverse;}
-.ft-legal{font-family:var(--arabic);font-size:11px;color:var(--ink4);line-height:1.8;max-width:580px;}
+body.ar .page-hero h1{font-family:var(--arabic);font-size:clamp(36px,5vw,60px);font-weight:300;line-height:1.4;color:var(--ink);}
+body.en .page-hero h1{font-family:var(--serif);font-size:clamp(40px,5vw,64px);font-weight:300;line-height:1.05;letter-spacing:-0.015em;color:var(--ink);}
 .page-hero{padding:6rem 5rem 5rem;border-bottom:0.5px solid var(--line);}
-.page-hero-label{font-family:var(--arabic);font-size:11px;color:var(--accent);margin-bottom:2rem;display:flex;align-items:center;gap:1.25rem;flex-direction:row-reverse;justify-content:flex-end;}
-.page-hero-label::after{content:'';width:26px;height:0.5px;background:var(--accent);}
-.page-hero h1{font-family:var(--arabic);font-size:clamp(36px,5vw,60px);font-weight:300;line-height:1.4;color:var(--ink);}
 .page-hero h1 em{font-style:italic;color:var(--ink4);}
-.page-hero p{font-family:var(--arabic);font-size:15px;line-height:2.1;color:var(--ink3);max-width:580px;margin-top:2rem;}
-.ltr{direction:ltr;display:inline-block;unicode-bidi:embed;}
-@media(max-width:1100px){.nav,.section,.footer,.page-hero{padding-left:3rem;padding-right:3rem;}}
-@media(max-width:768px){.nav{padding:1.5rem;}.nav-links,.nav-right .btn-nav{display:none;}.nav-mobile-toggle{display:flex;}.section{padding:4rem 1.5rem;}.page-hero{padding:3rem 1.5rem;}.footer{grid-template-columns:1fr;padding:3rem 1.5rem;}.footer-bottom{padding:1.5rem;flex-direction:column;align-items:flex-start;gap:1rem;}}
+body.ar .page-hero p{font-family:var(--arabic);font-size:15px;line-height:2.1;color:var(--ink3);max-width:600px;margin-top:2rem;}
+body.en .page-hero p{font-family:var(--sans);font-size:13.5px;line-height:2.0;color:var(--ink3);max-width:600px;margin-top:2rem;}
+.page-hero-label{font-size:11px;color:var(--accent);margin-bottom:2rem;display:flex;align-items:center;gap:1.25rem;}
+body.ar .page-hero-label{font-family:var(--arabic);flex-direction:row-reverse;justify-content:flex-end;}
+body.ar .page-hero-label::after{content:'';width:26px;height:0.5px;background:var(--accent);}
+body.en .page-hero-label{font-family:var(--sans);font-size:9px;letter-spacing:0.5em;text-transform:uppercase;}
+body.en .page-hero-label::before{content:'';width:26px;height:0.5px;background:var(--accent);}
+.flip-grid{display:flex;flex-wrap:wrap;gap:1px;background:var(--line);}
+.flip-card{flex:1;min-width:180px;background:var(--bg);perspective:1000px;cursor:pointer;}
+.flip-inner{position:relative;width:100%;padding-bottom:120%;transition:transform 0.6s;transform-style:preserve-3d;}
+.flip-card:hover .flip-inner{transform:rotateY(180deg);}
+.flip-front,.flip-back{position:absolute;inset:0;backface-visibility:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:1.5rem;text-align:center;gap:0.6rem;}
+.flip-front{background:var(--bg);}
+.flip-back{background:var(--accent2);transform:rotateY(180deg);}
+.flip-front img{height:48px;width:auto;max-width:110px;object-fit:contain;}
+body.ar .flip-sector{font-family:var(--arabic);font-size:10px;letter-spacing:0;color:var(--accent);}
+body.en .flip-sector{font-family:var(--sans);font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent);}
+body.ar .flip-service{font-family:var(--arabic);font-size:11px;line-height:1.7;color:var(--bg);}
+body.en .flip-service{font-family:var(--sans);font-size:10px;line-height:1.7;color:var(--bg);}
+body.ar .flip-name{font-family:var(--arabic);font-size:10px;color:rgba(234,230,223,0.55);margin-top:0.5rem;}
+body.en .flip-name{font-family:var(--sans);font-size:9px;letter-spacing:0.1em;color:rgba(234,230,223,0.55);margin-top:0.5rem;}
+.service-card{padding:3rem;border:0.5px solid var(--line);transition:background 0.3s;}
+.service-card:hover{background:var(--bg1);}
+.service-num{font-family:var(--serif);font-size:11px;color:rgba(74,88,64,0.4);margin-bottom:2rem;letter-spacing:0.3em;}
+body.ar .service-title{font-family:var(--arabic);font-size:22px;font-weight:300;color:var(--ink);margin-bottom:1rem;line-height:1.4;}
+body.en .service-title{font-family:var(--serif);font-size:24px;font-weight:300;color:var(--ink);margin-bottom:1rem;line-height:1.2;}
+body.ar .service-desc{font-family:var(--arabic);font-size:13px;line-height:2;color:var(--ink3);margin-bottom:1.5rem;}
+body.en .service-desc{font-family:var(--sans);font-size:12px;line-height:1.9;color:var(--ink3);margin-bottom:1.5rem;}
+.service-items{display:flex;flex-direction:column;gap:0.6rem;}
+body.ar .service-item{font-family:var(--arabic);font-size:12px;color:var(--ink4);display:flex;align-items:center;gap:8px;flex-direction:row-reverse;justify-content:flex-end;}
+body.en .service-item{font-family:var(--sans);font-size:11px;color:var(--ink4);display:flex;align-items:center;gap:8px;}
+.service-dot{width:3px;height:3px;background:var(--accent);border-radius:50%;flex-shrink:0;}
+.industry-card{padding:2.5rem;border:0.5px solid var(--line);margin:-0.5px 0 0 -0.5px;transition:background 0.3s;}
+.industry-card:hover{background:var(--bg1);}
+.industry-icon{font-size:28px;margin-bottom:1.25rem;}
+body.ar .industry-title{font-family:var(--arabic);font-size:18px;font-weight:300;color:var(--ink);margin-bottom:0.75rem;}
+body.en .industry-title{font-family:var(--serif);font-size:20px;font-weight:300;color:var(--ink);margin-bottom:0.75rem;}
+body.ar .industry-desc{font-family:var(--arabic);font-size:13px;line-height:1.9;color:var(--ink3);}
+body.en .industry-desc{font-family:var(--sans);font-size:12px;line-height:1.9;color:var(--ink3);}
+.footer{padding:5rem 5rem 3.5rem;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;}
+body.ar .footer{direction:rtl;}
+.ft-logo-name{font-family:var(--serif);font-size:18px;font-weight:300;letter-spacing:0.1em;color:var(--ink);margin-bottom:4px;}
+body.ar .ft-desc{font-family:var(--arabic);font-size:12px;line-height:1.9;color:var(--ink3);max-width:240px;margin-bottom:1.5rem;}
+body.en .ft-desc{font-family:var(--sans);font-size:12px;line-height:1.9;color:var(--ink3);max-width:240px;margin-bottom:1.5rem;}
+body.ar .ft-reg{font-family:var(--arabic);font-size:10px;color:rgba(74,88,64,0.55);}
+body.en .ft-reg{font-family:var(--sans);font-size:9px;letter-spacing:0.22em;text-transform:uppercase;color:rgba(74,88,64,0.55);}
+body.ar .ft-col-h{font-family:var(--arabic);font-size:11px;color:var(--ink4);margin-bottom:1.25rem;}
+body.en .ft-col-h{font-family:var(--sans);font-size:9px;letter-spacing:0.38em;text-transform:uppercase;color:var(--ink4);margin-bottom:1.25rem;}
+.ft-col a{display:block;margin-bottom:0.8rem;transition:color 0.2s;color:var(--ink3);}
+body.ar .ft-col a{font-family:var(--arabic);font-size:13px;}
+body.en .ft-col a{font-family:var(--sans);font-size:12px;}
+.ft-col a:hover{color:var(--accent);}
+.footer-bottom{padding:2rem 5rem;border-top:0.5px solid var(--line);display:flex;justify-content:space-between;align-items:center;}
+body.ar .footer-bottom{flex-direction:row-reverse;}
+body.ar .ft-legal{font-family:var(--arabic);font-size:11px;color:var(--ink4);line-height:1.8;max-width:580px;}
+body.en .ft-legal{font-family:var(--sans);font-size:10px;letter-spacing:0.04em;color:var(--ink4);line-height:1.8;max-width:580px;}
+.form-field{display:flex;flex-direction:column;gap:8px;}
+body.ar .form-label{font-family:var(--arabic);font-size:11px;color:var(--ink4);}
+body.en .form-label{font-family:var(--sans);font-size:9px;letter-spacing:0.38em;text-transform:uppercase;color:var(--ink4);}
+.form-input{background:transparent;border:none;border-bottom:0.5px solid var(--line2);padding:10px 0;color:var(--ink2);outline:none;transition:border-color 0.2s;}
+body.ar .form-input{font-family:var(--arabic);font-size:14px;text-align:right;direction:rtl;}
+body.en .form-input{font-family:var(--sans);font-size:13px;}
+.form-input:focus{border-bottom-color:var(--accent);}
+.form-input::placeholder{color:var(--ink4);}
+.form-success{display:none;padding:1.5rem;border:0.5px solid rgba(74,88,64,0.35);line-height:1.9;color:var(--ink3);}
+@media(max-width:1100px){.nav,.section,.footer,.page-hero{padding-left:3rem;padding-right:3rem;}.footer{grid-template-columns:1fr 1fr;}}
+@media(max-width:768px){.nav{padding:1.5rem;}.nav-links,.nav-right .btn-nav{display:none;}.nav-mobile-toggle{display:flex;}.section{padding:4rem 1.5rem;}.page-hero{padding:3rem 1.5rem;}.footer{grid-template-columns:1fr;padding:3rem 1.5rem;}.footer-bottom{padding:1.5rem;flex-direction:column;align-items:flex-start;gap:1rem;}.flip-card{min-width:140px;}}
 </style>
 </head>
-<body style="direction:ltr;font-family:var(--sans);">
-
-<div class="mobile-menu" style="direction:ltr;">
-  <button class="mobile-menu-close" style="right:2rem;left:auto;">✕</button>
-  <a href="index.html" style="font-family:var(--serif);font-size:28px;letter-spacing:0.04em;">Home</a>
-  <a href="about.html" style="font-family:var(--serif);font-size:28px;letter-spacing:0.04em;">The Firm</a>
-  <a href="services.html" style="font-family:var(--serif);font-size:28px;letter-spacing:0.04em;">Advisory</a>
-  <a href="perspectives.html" style="font-family:var(--serif);font-size:28px;letter-spacing:0.04em;">Perspectives</a>
-  <a href="contact.html" style="font-family:var(--serif);font-size:28px;letter-spacing:0.04em;">Contact</a>
-  <a href="../index.html" style="font-family:'Cairo',sans-serif;font-size:22px;direction:rtl;">العربية</a>
-</div>
-
-<header><nav class="nav" style="direction:ltr;">
-  <a href="index.html" class="nav-logo"><img src="../logos/finsphere.png" alt="Finsphere" style="height:52px;width:auto;"/></a>
-  <div class="nav-links" style="flex-direction:row;">
-    <a href="about.html" style="font-family:var(--sans);font-size:10.5px;letter-spacing:0.2em;text-transform:uppercase;">The Firm</a>
-    <a href="services.html" style="font-family:var(--sans);font-size:10.5px;letter-spacing:0.2em;text-transform:uppercase;">Advisory</a>
-    <a href="perspectives.html" style="font-family:var(--sans);font-size:10.5px;letter-spacing:0.2em;text-transform:uppercase;">Perspectives</a>
-    <a href="contact.html" style="font-family:var(--sans);font-size:10.5px;letter-spacing:0.2em;text-transform:uppercase;">Contact</a>
-  </div>
-  <div class="nav-right">
-    <a href="../index.html" class="lang-switch" style="font-family:'Cairo',sans-serif;">عربي</a>
-    <a href="contact.html" class="btn-nav" style="font-family:var(--sans);font-size:9px;letter-spacing:0.22em;text-transform:uppercase;">Private Inquiry</a>
-    <button class="nav-mobile-toggle"><span></span><span></span><span></span></button>
-  </div>
-</nav></header>
-
+<body class="en">
+<div class="mobile-menu"><button class="mobile-menu-close">✕</button><a href="../en/about.html">The Firm</a><a href="../en/services.html">Services</a><a href="../en/industries.html">Industries</a><a href="../en/insights.html">Insights</a><a href="../en/careers.html">Careers</a><a href="../en/contact.html">Contact</a><a href="../index.html" style="font-family:'Cairo',sans-serif;font-size:22px;direction:rtl;">العربية</a></div>
+<header><nav class="nav"><a href="../en/index.html" class="nav-logo"><img src="../logos/finsphere.png" alt="Finsphere"/></a><div class="nav-links"><a href="../en/about.html" >The Firm</a><a href="../en/services.html" >Services</a><a href="../en/industries.html" >Industries</a><a href="../en/insights.html" >Insights</a><a href="../en/careers.html" >Careers</a><a href="../en/contact.html" >Contact</a></div><div class="nav-right"><a href="../index.html" class="lang-switch">عربي</a><a href="../en/contact.html" class="btn-nav">Inquiry</a><button class="nav-mobile-toggle"><span></span><span></span><span></span></button></div></nav></header>
 <main>
-
-<section style="min-height:94vh;display:grid;grid-template-columns:55fr 45fr;border-bottom:0.5px solid var(--line);">
+<section style="min-height:92vh;display:grid;grid-template-columns:55fr 45fr;border-bottom:0.5px solid var(--line);">
   <div style="padding:7rem 5rem;display:flex;flex-direction:column;justify-content:center;border-right:0.5px solid var(--line);" class="reveal">
-    <p style="font-family:var(--sans);font-size:9px;letter-spacing:0.5em;text-transform:uppercase;color:var(--accent);margin-bottom:3rem;display:flex;align-items:center;gap:1.25rem;">
-      <span style="width:28px;height:0.5px;background:var(--accent);display:block;"></span>
-      Private Wealth Advisory · Jeddah, Saudi Arabia
-    </p>
-    <h1 style="font-family:var(--serif);font-size:clamp(44px,5.5vw,70px);font-weight:300;line-height:1.05;letter-spacing:-0.015em;color:var(--ink);margin-bottom:2.5rem;" class="reveal delay-1">
-      Strategic advisory<br>for considered,<br><em style="color:var(--ink4);">enduring wealth.</em>
-    </h1>
-    <p style="font-family:var(--sans);font-size:13.5px;line-height:1.95;color:var(--ink3);max-width:420px;margin-bottom:3.5rem;" class="reveal delay-2">
-      Finsphere advises individuals, families, and business owners through complex financial decisions. Built on genuine institutional depth. Delivered with complete personal attention.
-    </p>
+    <p style="font-family:var(--sans);font-size:9px;letter-spacing:0.5em;text-transform:uppercase;color:var(--accent);margin-bottom:3rem;display:flex;align-items:center;gap:1.25rem;"><span style="width:28px;height:0.5px;background:var(--accent);display:block;"></span>Financial · Management · Strategic Advisory · Jeddah, KSA</p>
+    <h1 style="font-family:var(--serif);font-size:clamp(44px,5.5vw,70px);font-weight:300;line-height:1.05;letter-spacing:-0.015em;color:var(--ink);margin-bottom:2.5rem;" class="reveal delay-1">Bridging strategy,<br>finance, governance<br><em style="color:var(--ink4);">and execution.</em></h1>
+    <p style="font-family:var(--sans);font-size:13.5px;line-height:1.95;color:var(--ink3);max-width:440px;margin-bottom:3.5rem;" class="reveal delay-2">Finsphere is an independent boutique advisory firm specialising in financial advisory, management consulting, and corporate governance for businesses, investors, and families across Saudi Arabia.</p>
     <div style="display:flex;align-items:center;gap:1.5rem;" class="reveal delay-3">
-      <a href="contact.html" class="btn-primary" style="font-family:var(--sans);font-size:10px;letter-spacing:0.26em;text-transform:uppercase;">Begin a Private Conversation</a>
-      <a href="services.html" style="font-family:var(--sans);font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--ink3);display:inline-flex;align-items:center;gap:10px;">Advisory Services <span style="color:var(--accent);">→</span></a>
+      <a href="contact.html" class="btn-primary">Start a Conversation</a>
+      <a href="services.html" style="font-family:var(--sans);font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--ink3);display:inline-flex;align-items:center;gap:10px;">Our Services <span style="color:var(--accent);">→</span></a>
     </div>
   </div>
   <div style="padding:7rem 4rem 7rem 5rem;display:flex;flex-direction:column;justify-content:center;gap:3rem;" class="reveal delay-2">
     <div style="border-left:0.5px solid var(--accent);padding:2rem 0 2rem 2.5rem;">
-      <p style="font-family:var(--serif);font-size:18px;font-style:italic;line-height:1.65;color:var(--ink2);margin-bottom:1.25rem;">"I spent years inside the institutions where Saudi Arabia's major financial decisions are made. I founded Finsphere to bring that level of thinking directly to the individuals and families who deserve it."</p>
-      <p style="font-family:var(--sans);font-size:9px;letter-spacing:0.3em;text-transform:uppercase;color:var(--accent);">Founder · Finsphere</p>
-      <p style="font-family:var(--sans);font-size:11px;color:var(--ink4);margin-top:4px;">14+ years across Saudi & Gulf capital markets</p>
+      <p style="font-family:var(--serif);font-size:18px;font-style:italic;line-height:1.65;color:var(--ink2);margin-bottom:1.25rem;">"We don't offer generic recommendations. We build tailored strategies grounded in real data and hands-on experience gained in Saudi Arabia's most complex business environments."</p>
+      <p style="font-family:var(--sans);font-size:9px;letter-spacing:0.3em;text-transform:uppercase;color:var(--accent);">Managing Director · Finsphere</p>
+      <p style="font-family:var(--sans);font-size:11px;color:var(--ink4);margin-top:4px;">14+ years across Saudi & Gulf financial markets</p>
     </div>
-    <div>
-      <div style="display:flex;align-items:flex-start;gap:1rem;padding:0.9rem 0;border-top:0.5px solid var(--line);border-bottom:0.5px solid var(--line);"><div style="width:4px;height:4px;background:var(--accent);border-radius:50%;margin-top:7px;flex-shrink:0;"></div><span style="font-family:var(--sans);font-size:12px;color:var(--ink3);">Institutional experience in Saudi Arabia's most consequential financial environments</span></div>
-      <div style="display:flex;align-items:flex-start;gap:1rem;padding:0.9rem 0;border-bottom:0.5px solid var(--line);"><div style="width:4px;height:4px;background:var(--accent);border-radius:50%;margin-top:7px;flex-shrink:0;"></div><span style="font-family:var(--sans);font-size:12px;color:var(--ink3);">Direct involvement in Vision 2030 mega-projects & strategic planning</span></div>
-      <div style="display:flex;align-items:flex-start;gap:1rem;padding:0.9rem 0;border-bottom:0.5px solid var(--line);"><div style="width:4px;height:4px;background:var(--accent);border-radius:50%;margin-top:7px;flex-shrink:0;"></div><span style="font-family:var(--sans);font-size:12px;color:var(--ink3);">SCOPA Licensed #030080 · Shariah-compliant options available</span></div>
-      <div style="display:flex;align-items:flex-start;gap:1rem;padding:0.9rem 0;"><div style="width:4px;height:4px;background:var(--accent);border-radius:50%;margin-top:7px;flex-shrink:0;"></div><span style="font-family:var(--sans);font-size:12px;color:var(--ink3);">Independent advisory — every client works directly with the founder</span></div>
-    </div>
+    <div><div style="display:flex;align-items:flex-start;gap:1rem;padding:0.9rem 0;border-bottom:0.5px solid var(--line);border-top:0.5px solid var(--line);"><div style="width:4px;height:4px;background:var(--accent);border-radius:50%;margin-top:7px;flex-shrink:0;"></div><span style="font-family:var(--sans);font-size:12px;color:var(--ink3);">Deep institutional experience across Saudi & Gulf markets</span></div><div style="display:flex;align-items:flex-start;gap:1rem;padding:0.9rem 0;border-bottom:0.5px solid var(--line);"><div style="width:4px;height:4px;background:var(--accent);border-radius:50%;margin-top:7px;flex-shrink:0;"></div><span style="font-family:var(--sans);font-size:12px;color:var(--ink3);">Fully independent — zero conflicts of interest</span></div><div style="display:flex;align-items:flex-start;gap:1rem;padding:0.9rem 0;border-bottom:0.5px solid var(--line);"><div style="width:4px;height:4px;background:var(--accent);border-radius:50%;margin-top:7px;flex-shrink:0;"></div><span style="font-family:var(--sans);font-size:12px;color:var(--ink3);">SCOPA Licensed #030080</span></div><div style="display:flex;align-items:flex-start;gap:1rem;padding:0.9rem 0;border-bottom:0.5px solid var(--line);"><div style="width:4px;height:4px;background:var(--accent);border-radius:50%;margin-top:7px;flex-shrink:0;"></div><span style="font-family:var(--sans);font-size:12px;color:var(--ink3);">Data-driven, analytically rigorous approach</span></div></div>
   </div>
 </section>
-
 <div style="display:grid;grid-template-columns:repeat(3,1fr);background:var(--bg1);border-bottom:0.5px solid var(--line);">
-  <div style="padding:2.5rem 3.5rem;border-right:0.5px solid var(--line);"><p style="font-family:var(--sans);font-size:9px;letter-spacing:0.35em;text-transform:uppercase;color:var(--ink4);margin-bottom:8px;">Regulatory Status</p><p style="font-family:var(--serif);font-size:16px;font-weight:300;color:var(--ink2);line-height:1.5;">SCOPA Licensed<br>License #030080</p></div>
-  <div style="padding:2.5rem 3.5rem;border-right:0.5px solid var(--line);"><p style="font-family:var(--sans);font-size:9px;letter-spacing:0.35em;text-transform:uppercase;color:var(--ink4);margin-bottom:8px;">Founder Experience</p><p style="font-family:var(--serif);font-size:16px;font-weight:300;color:var(--ink2);line-height:1.5;">14+ Years · Senior<br>Institutional Roles</p></div>
-  <div style="padding:2.5rem 3.5rem;"><p style="font-family:var(--sans);font-size:9px;letter-spacing:0.35em;text-transform:uppercase;color:var(--ink4);margin-bottom:8px;">Advisory Model</p><p style="font-family:var(--serif);font-size:16px;font-weight:300;color:var(--ink2);line-height:1.5;">Independent · Confidential<br>Founder-Led</p></div>
+  <div style="padding:2.5rem 3.5rem;border-right:0.5px solid var(--line);"><p style="font-family:var(--sans);font-size:9px;letter-spacing:0.35em;text-transform:uppercase;color:var(--ink4);margin-bottom:8px;">Specialisation</p><p style="font-family:var(--serif);font-size:16px;font-weight:300;color:var(--ink2);line-height:1.5;">Financial, Management<br>& Strategic Advisory</p></div>
+  <div style="padding:2.5rem 3.5rem;border-right:0.5px solid var(--line);"><p style="font-family:var(--sans);font-size:9px;letter-spacing:0.35em;text-transform:uppercase;color:var(--ink4);margin-bottom:8px;">MD Experience</p><p style="font-family:var(--serif);font-size:16px;font-weight:300;color:var(--ink2);line-height:1.5;">14+ Years · Senior<br>Leadership Roles</p></div>
+  <div style="padding:2.5rem 3.5rem;"><p style="font-family:var(--sans);font-size:9px;letter-spacing:0.35em;text-transform:uppercase;color:var(--ink4);margin-bottom:8px;">Advisory Model</p><p style="font-family:var(--serif);font-size:16px;font-weight:300;color:var(--ink2);line-height:1.5;">Independent · Specialist<br>MD-Led</p></div>
 </div>
-
-<section class="section border-b reveal">
-  <p class="section-label" style="font-family:var(--sans);font-size:9px;letter-spacing:0.5em;text-transform:uppercase;flex-direction:row;">
-    <span style="width:26px;height:0.5px;background:var(--accent);display:block;"></span>
-    Advisory Philosophy
-  </p>
-  <div style="display:grid;grid-template-columns:1fr 2fr;gap:6rem;align-items:start;margin-top:3.5rem;">
-    <div></div>
-    <div>
-      <h2 style="font-family:var(--serif);font-size:clamp(30px,3.5vw,44px);font-weight:300;line-height:1.12;color:var(--ink);margin-bottom:2.5rem;">Wealth management excellence<br>begins with a question,<br><em style="color:var(--ink4);">not a product.</em></h2>
-      <p style="font-family:var(--sans);font-size:13.5px;line-height:2.0;color:var(--ink3);">Most advisory relationships begin with a portfolio review. At Finsphere, they begin differently — with a genuine conversation about what your wealth needs to achieve. For you, for your family, for the decade ahead.</p>
-      <p style="font-family:var(--sans);font-size:13.5px;line-height:2.0;color:var(--ink3);margin-top:1.5rem;"><strong style="color:var(--ink2);font-weight:400;">Clarity of purpose shapes every allocation, every structure, every decision.</strong> Finsphere exists precisely because this kind of advisory is rare.</p>
-    </div>
-  </div>
-</section>
-
-<section class="section border-b reveal" style="padding-top:0;">
-  <p class="section-label" style="font-family:var(--sans);font-size:9px;letter-spacing:0.5em;text-transform:uppercase;flex-direction:row;"><span style="width:26px;height:0.5px;background:var(--accent);display:block;"></span>Advisory Services</p>
-  <div style="display:grid;grid-template-columns:repeat(3,1fr);margin-top:3.5rem;">
-    <div style="padding:2.75rem;border:0.5px solid var(--line);margin:-0.5px 0 0 -0.5px;" class="reveal"><p style="font-family:var(--sans);font-size:9px;letter-spacing:0.4em;color:rgba(74,88,64,0.5);margin-bottom:2rem;">01</p><h3 style="font-family:var(--serif);font-size:23px;line-height:1.2;color:var(--ink);margin-bottom:1rem;">Private Wealth Structuring</h3><p style="font-family:var(--sans);font-size:12px;line-height:1.95;color:var(--ink3);">Bespoke portfolios for families with complex, multi-generational or cross-border needs.</p></div>
-    <div style="padding:2.75rem;border:0.5px solid var(--line);margin:-0.5px 0 0 -0.5px;" class="reveal delay-1"><p style="font-family:var(--sans);font-size:9px;letter-spacing:0.4em;color:rgba(74,88,64,0.5);margin-bottom:2rem;">02</p><h3 style="font-family:var(--serif);font-size:23px;line-height:1.2;color:var(--ink);margin-bottom:1rem;">Independent Investment Advisory</h3><p style="font-family:var(--sans);font-size:12px;line-height:1.95;color:var(--ink3);">Independent market analysis across Saudi, Gulf, and global markets. No agenda.</p></div>
-    <div style="padding:2.75rem;border:0.5px solid var(--line);margin:-0.5px 0 0 -0.5px;" class="reveal delay-2"><p style="font-family:var(--sans);font-size:9px;letter-spacing:0.4em;color:rgba(74,88,64,0.5);margin-bottom:2rem;">03</p><h3 style="font-family:var(--serif);font-size:23px;line-height:1.2;color:var(--ink);margin-bottom:1rem;">Family Wealth Continuity</h3><p style="font-family:var(--sans);font-size:12px;line-height:1.95;color:var(--ink3);">Governance frameworks and succession planning for multi-generational wealth transfer.</p></div>
-    <div style="padding:2.75rem;border:0.5px solid var(--line);margin:-0.5px 0 0 -0.5px;" class="reveal"><p style="font-family:var(--sans);font-size:9px;letter-spacing:0.4em;color:rgba(74,88,64,0.5);margin-bottom:2rem;">04</p><h3 style="font-family:var(--serif);font-size:23px;line-height:1.2;color:var(--ink);margin-bottom:1rem;">Business Owner Advisory</h3><p style="font-family:var(--sans);font-size:12px;line-height:1.95;color:var(--ink3);">Navigating liquidity events, succession, and separation of personal and business wealth.</p></div>
-    <div style="padding:2.75rem;border:0.5px solid var(--line);margin:-0.5px 0 0 -0.5px;" class="reveal delay-1"><p style="font-family:var(--sans);font-size:9px;letter-spacing:0.4em;color:rgba(74,88,64,0.5);margin-bottom:2rem;">05</p><h3 style="font-family:var(--serif);font-size:23px;line-height:1.2;color:var(--ink);margin-bottom:1rem;">Shariah-Compliant Investing</h3><p style="font-family:var(--sans);font-size:12px;line-height:1.95;color:var(--ink3);">Rigorous screening of equities, sukuk, and real assets with scholarly oversight.</p></div>
-    <div style="padding:2.75rem;border:0.5px solid var(--line);margin:-0.5px 0 0 -0.5px;" class="reveal delay-2"><p style="font-family:var(--sans);font-size:9px;letter-spacing:0.4em;color:rgba(74,88,64,0.5);margin-bottom:2rem;">06</p><h3 style="font-family:var(--serif);font-size:23px;line-height:1.2;color:var(--ink);margin-bottom:1rem;">Strategic Capital Access</h3><p style="font-family:var(--sans);font-size:12px;line-height:1.95;color:var(--ink3);">Curated access to private equity, real assets, and Vision 2030-aligned opportunities.</p></div>
-  </div>
-</section>
-
-<section class="section border-b reveal">
-  <p class="section-label" style="font-family:var(--sans);font-size:9px;letter-spacing:0.5em;text-transform:uppercase;flex-direction:row;"><span style="width:26px;height:0.5px;background:var(--accent);display:block;"></span>Clients & Partners</p>
-  <div style="display:flex;flex-wrap:wrap;gap:1rem;margin-top:3.5rem;">
-    <div style="display:flex;flex-direction:column;align-items:center;gap:1rem;padding:2rem 1.5rem;border:0.5px solid var(--line);min-width:160px;flex:1;background:var(--bg);transition:background 0.25s;" onmouseover="this.style.background='var(--bg1)'" onmouseout="this.style.background='var(--bg)'">
-  <img src="../logos/hamat_group.png" alt="HAMAT Group" style="height:56px;width:auto;max-width:130px;object-fit:contain;"/>
-  <p style="font-family:var(--sans);font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent);text-align:center;">Commercial Real Estate</p>
-  <p style="font-family:var(--sans);font-size:11px;color:var(--ink3);line-height:1.7;text-align:center;">Developer & operator of shopping centers across Saudi Arabia</p>
-</div><div style="display:flex;flex-direction:column;align-items:center;gap:1rem;padding:2rem 1.5rem;border:0.5px solid var(--line);min-width:160px;flex:1;background:var(--bg);transition:background 0.25s;" onmouseover="this.style.background='var(--bg1)'" onmouseout="this.style.background='var(--bg)'">
-  <img src="../logos/rwashin.png" alt="Rwashin Compounds" style="height:56px;width:auto;max-width:130px;object-fit:contain;"/>
-  <p style="font-family:var(--sans);font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent);text-align:center;">Residential Development</p>
-  <p style="font-family:var(--sans);font-size:11px;color:var(--ink3);line-height:1.7;text-align:center;">Integrated residential compound development & management</p>
-</div><div style="display:flex;flex-direction:column;align-items:center;gap:1rem;padding:2rem 1.5rem;border:0.5px solid var(--line);min-width:160px;flex:1;background:var(--bg);transition:background 0.25s;" onmouseover="this.style.background='var(--bg1)'" onmouseout="this.style.background='var(--bg)'">
-  <img src="../logos/nabed.png" alt="NABED" style="height:56px;width:auto;max-width:130px;object-fit:contain;"/>
-  <p style="font-family:var(--sans);font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent);text-align:center;">Digital Healthcare</p>
-  <p style="font-family:var(--sans);font-size:11px;color:var(--ink3);line-height:1.7;text-align:center;">Digital platform for patient care & health data integration</p>
-</div><div style="display:flex;flex-direction:column;align-items:center;gap:1rem;padding:2rem 1.5rem;border:0.5px solid var(--line);min-width:160px;flex:1;background:var(--bg);transition:background 0.25s;" onmouseover="this.style.background='var(--bg1)'" onmouseout="this.style.background='var(--bg)'">
-  <img src="../logos/cfg.png" alt="CFG Environment" style="height:56px;width:auto;max-width:130px;object-fit:contain;"/>
-  <p style="font-family:var(--sans);font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent);text-align:center;">Environment & Energy</p>
-  <p style="font-family:var(--sans);font-size:11px;color:var(--ink3);line-height:1.7;text-align:center;">Environmental solutions & sustainable energy projects</p>
-</div><div style="display:flex;flex-direction:column;align-items:center;gap:1rem;padding:2rem 1.5rem;border:0.5px solid var(--line);min-width:160px;flex:1;background:var(--bg);transition:background 0.25s;" onmouseover="this.style.background='var(--bg1)'" onmouseout="this.style.background='var(--bg)'">
-  <img src="../logos/wisework.png" alt="WiseWork" style="height:56px;width:auto;max-width:130px;object-fit:contain;"/>
-  <p style="font-family:var(--sans);font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent);text-align:center;">Business Technology</p>
-  <p style="font-family:var(--sans);font-size:11px;color:var(--ink3);line-height:1.7;text-align:center;">Smart workspace solutions & productivity management</p>
-</div><div style="display:flex;flex-direction:column;align-items:center;gap:1rem;padding:2rem 1.5rem;border:0.5px solid var(--line);min-width:160px;flex:1;background:var(--bg);transition:background 0.25s;" onmouseover="this.style.background='var(--bg1)'" onmouseout="this.style.background='var(--bg)'">
-  <img src="../logos/idv.png" alt="IDV" style="height:56px;width:auto;max-width:130px;object-fit:contain;"/>
-  <p style="font-family:var(--sans);font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent);text-align:center;">Venture Studio & Tech</p>
-  <p style="font-family:var(--sans);font-size:11px;color:var(--ink3);line-height:1.7;text-align:center;">Incubating & investing in Saudi technology startups</p>
-</div><div style="display:flex;flex-direction:column;align-items:center;gap:1rem;padding:2rem 1.5rem;border:0.5px solid var(--line);min-width:160px;flex:1;background:var(--bg);transition:background 0.25s;" onmouseover="this.style.background='var(--bg1)'" onmouseout="this.style.background='var(--bg)'">
-  <img src="../logos/samatwaiq.png" alt="SAMA TWAIQ" style="height:56px;width:auto;max-width:130px;object-fit:contain;"/>
-  <p style="font-family:var(--sans);font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent);text-align:center;">Drone Technology</p>
-  <p style="font-family:var(--sans);font-size:11px;color:var(--ink3);line-height:1.7;text-align:center;">UAV aerial services, mapping & unmanned traffic management</p>
-</div><div style="display:flex;flex-direction:column;align-items:center;gap:1rem;padding:2rem 1.5rem;border:0.5px solid var(--line);min-width:160px;flex:1;background:var(--bg);transition:background 0.25s;" onmouseover="this.style.background='var(--bg1)'" onmouseout="this.style.background='var(--bg)'">
-  <img src="../logos/invdro.png" alt="Invdro" style="height:56px;width:auto;max-width:130px;object-fit:contain;"/>
-  <p style="font-family:var(--sans);font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent);text-align:center;">Drone Inventory Tech</p>
-  <p style="font-family:var(--sans);font-size:11px;color:var(--ink3);line-height:1.7;text-align:center;">Drone-based inventory management & monitoring solutions</p>
-</div><div style="display:flex;flex-direction:column;align-items:center;gap:1rem;padding:2rem 1.5rem;border:0.5px solid var(--line);min-width:160px;flex:1;background:var(--bg);transition:background 0.25s;" onmouseover="this.style.background='var(--bg1)'" onmouseout="this.style.background='var(--bg)'">
-  <img src="../logos/hamat_academy.png" alt="HAMAT Academy" style="height:56px;width:auto;max-width:130px;object-fit:contain;"/>
-  <p style="font-family:var(--sans);font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent);text-align:center;">Education & Training</p>
-  <p style="font-family:var(--sans);font-size:11px;color:var(--ink3);line-height:1.7;text-align:center;">Professional development & specialized training programs</p>
-</div><div style="display:flex;flex-direction:column;align-items:center;gap:1rem;padding:2rem 1.5rem;border:0.5px solid var(--line);min-width:160px;flex:1;background:var(--bg);transition:background 0.25s;" onmouseover="this.style.background='var(--bg1)'" onmouseout="this.style.background='var(--bg)'">
-  <img src="../logos/baljurashi.png" alt="Baljurashi Boulevard" style="height:56px;width:auto;max-width:130px;object-fit:contain;"/>
-  <p style="font-family:var(--sans);font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent);text-align:center;">Real Estate & Tourism</p>
-  <p style="font-family:var(--sans);font-size:11px;color:var(--ink3);line-height:1.7;text-align:center;">Heritage-inspired investment destination in Al-Baha blending traditional architecture with modern development</p>
-</div><div style="display:flex;flex-direction:column;align-items:center;gap:1rem;padding:2rem 1.5rem;border:0.5px solid var(--line);min-width:160px;flex:1;background:var(--bg);transition:background 0.25s;" onmouseover="this.style.background='var(--bg1)'" onmouseout="this.style.background='var(--bg)'">
-  <img src="../logos/sju.png" alt="Saudi Journalists Association" style="height:56px;width:auto;max-width:130px;object-fit:contain;"/>
-  <p style="font-family:var(--sans);font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent);text-align:center;">Media & Journalism</p>
-  <p style="font-family:var(--sans);font-size:11px;color:var(--ink3);line-height:1.7;text-align:center;">Official government body serving the professional objectives of journalists across Saudi Arabia</p>
-</div>
-  </div>
-</section>
-
-<section class="section border-b reveal">
-  <div style="display:grid;grid-template-columns:1fr 1fr;gap:7rem;align-items:start;">
-    <div>
-      <p class="section-label" style="font-family:var(--sans);font-size:9px;letter-spacing:0.5em;text-transform:uppercase;flex-direction:row;"><span style="width:26px;height:0.5px;background:var(--accent);display:block;"></span>Private Inquiry</p>
-      <h2 style="font-family:var(--serif);font-size:clamp(30px,3.5vw,44px);font-weight:300;line-height:1.12;color:var(--ink);margin-bottom:2.5rem;margin-top:3.5rem;">Every serious<br>relationship begins<br>with <em style="color:var(--ink4);">one conversation.</em></h2>
-      <p style="font-family:var(--sans);font-size:13.5px;line-height:2.0;color:var(--ink3);max-width:360px;margin-bottom:1.5rem;">No presentations. No associates. You speak directly with the founder. All inquiries are confidential and personally responded to within 24 hours.</p>
-      <a href="https://wa.me/966544174408" style="display:inline-flex;align-items:center;gap:1rem;border:0.5px solid rgba(74,88,64,0.38);padding:13px 22px;color:var(--accent);font-family:var(--sans);font-size:10px;letter-spacing:0.2em;text-transform:uppercase;" target="_blank" rel="noopener">
-        <div style="width:20px;height:20px;background:var(--accent2);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:9px;color:var(--bg);font-weight:500;">W</div>
-        WhatsApp Direct
-      </a>
-    </div>
-    <form novalidate style="display:flex;flex-direction:column;gap:2rem;">
-      <div style="display:flex;flex-direction:column;gap:8px;"><label style="font-family:var(--sans);font-size:9px;letter-spacing:0.38em;text-transform:uppercase;color:var(--ink4);">Your Name</label><input style="background:transparent;border:none;border-bottom:0.5px solid var(--line2);padding:10px 0;font-family:var(--sans);font-size:13px;color:var(--ink2);outline:none;" type="text" placeholder="As you prefer to be addressed"/></div>
-      <div style="display:flex;flex-direction:column;gap:8px;"><label style="font-family:var(--sans);font-size:9px;letter-spacing:0.38em;text-transform:uppercase;color:var(--ink4);">Subject</label><input style="background:transparent;border:none;border-bottom:0.5px solid var(--line2);padding:10px 0;font-family:var(--sans);font-size:13px;color:var(--ink2);outline:none;" type="text" placeholder="Briefly, if you wish"/></div>
-      <div style="display:flex;flex-direction:column;gap:8px;"><label style="font-family:var(--sans);font-size:9px;letter-spacing:0.38em;text-transform:uppercase;color:var(--ink4);">Preferred Contact</label><input style="background:transparent;border:none;border-bottom:0.5px solid var(--line2);padding:10px 0;font-family:var(--sans);font-size:13px;color:var(--ink2);outline:none;" type="text" placeholder="Email or phone number"/></div>
-      <button type="submit" class="btn-primary" style="align-self:flex-end;font-family:var(--sans);font-size:10px;letter-spacing:0.26em;text-transform:uppercase;">Submit Private Inquiry</button>
-    </form>
-  </div>
-</section>
-
-</main>
-
-<footer class="footer border-t" style="direction:ltr;">
-  <div>
-    <p class="ft-logo-name">Finsphere</p>
-    <p style="font-family:'Cairo',sans-serif;font-size:14px;color:var(--ink4);direction:rtl;margin-bottom:1.25rem;">فنسفير</p>
-    <p class="ft-desc" style="font-family:var(--sans);">Private wealth advisory for families, business owners, and investors in Saudi Arabia and the Gulf.</p>
-    <p class="ft-reg" style="font-family:var(--sans);font-size:9px;letter-spacing:0.22em;text-transform:uppercase;">SCOPA License #030080 · CR 7054180695 · Jeddah</p>
-  </div>
-  <div class="ft-col"><p class="ft-col-h" style="font-family:var(--sans);letter-spacing:0.38em;text-transform:uppercase;">Advisory</p><a href="services.html" style="font-family:var(--sans);">Wealth Structuring</a><a href="services.html" style="font-family:var(--sans);">Investment Intelligence</a><a href="services.html" style="font-family:var(--sans);">Family Continuity</a><a href="services.html" style="font-family:var(--sans);">Shariah Investing</a></div>
-  <div class="ft-col"><p class="ft-col-h" style="font-family:var(--sans);letter-spacing:0.38em;text-transform:uppercase;">Firm</p><a href="about.html" style="font-family:var(--sans);">The Firm</a><a href="index.html" style="font-family:var(--sans);">Our Philosophy</a><a href="perspectives.html" style="font-family:var(--sans);">Perspectives</a><a href="contact.html" style="font-family:var(--sans);">Disclosure</a></div>
-  <div class="ft-col"><p class="ft-col-h" style="font-family:var(--sans);letter-spacing:0.38em;text-transform:uppercase;">Connect</p><a href="contact.html" style="font-family:var(--sans);">Private Inquiry</a><a href="https://wa.me/966544174408" style="font-family:var(--sans);">WhatsApp Direct</a><a href="../index.html" style="font-family:'Cairo',sans-serif;font-size:13px;direction:rtl;">النسخة العربية</a></div>
-</footer>
-<div class="footer-bottom" style="direction:ltr;">
-  <p class="ft-legal" style="font-family:var(--sans);font-size:10px;letter-spacing:0.04em;">© 2025 Finsphere Advisory Co. SCOPA License #030080. CR 7054180695. Information provided for informational purposes only. Not investment, legal, or tax advice. Investment involves risk.</p>
-  <p style="font-family:var(--sans);font-size:10px;color:var(--ink4);letter-spacing:0.1em;">Privacy · Disclosure · Terms</p>
-</div>
-
+<section class="section border-b"><p class="section-label">Our Services</p><div style="display:grid;grid-template-columns:repeat(3,1fr);gap:0;"><div class="service-card reveal"><p class="service-num">01</p><h3 class="service-title">Financial Advisory</h3><p class="service-desc">Independent, institutional-grade financial advisory built on deep experience across Saudi and Gulf markets.</p><div class="service-items"><div class="service-item"><div class="service-dot"></div><span>Financial planning & budgeting</span></div><div class="service-item"><div class="service-dot"></div><span>Feasibility analysis</span></div><div class="service-item"><div class="service-dot"></div><span>Deal & investment structuring</span></div><div class="service-item"><div class="service-dot"></div><span>Financial risk management</span></div><div class="service-item"><div class="service-dot"></div><span>Financial reporting & compliance</span></div></div></div><div class="service-card reveal delay-1"><p class="service-num">02</p><h3 class="service-title">Management Consulting</h3><p class="service-desc">Helping organisations achieve strategic objectives through integrated, data-driven management solutions.</p><div class="service-items"><div class="service-item"><div class="service-dot"></div><span>Business restructuring</span></div><div class="service-item"><div class="service-dot"></div><span>Organisational performance strategy</span></div><div class="service-item"><div class="service-dot"></div><span>Market research & competitive analysis</span></div><div class="service-item"><div class="service-dot"></div><span>Stakeholder management</span></div><div class="service-item"><div class="service-dot"></div><span>Long-term strategic planning</span></div></div></div><div class="service-card reveal delay-2"><p class="service-num">03</p><h3 class="service-title">Governance & Growth</h3><p class="service-desc">Building robust governance frameworks and sustainable growth roadmaps for private and family enterprises.</p><div class="service-items"><div class="service-item"><div class="service-dot"></div><span>Corporate governance structures</span></div><div class="service-item"><div class="service-dot"></div><span>Succession & continuity planning</span></div><div class="service-item"><div class="service-dot"></div><span>Retained CFO advisory</span></div><div class="service-item"><div class="service-dot"></div><span>Investor strategy & capital readiness</span></div><div class="service-item"><div class="service-dot"></div><span>Asset management & divestment</span></div></div></div></div></section>
+<section class="section border-b bg1 reveal"><div style="display:grid;grid-template-columns:1fr 2fr;gap:6rem;align-items:start;"><div><p class="section-label">About Us</p></div><div><h2 class="section-h2">Independent advisory<br>built on depth,<br><em>not promises.</em></h2><p class="body-text">Finsphere is built on real experience earned inside Saudi Arabia's largest financial and government institutions — from the Royal Commission for Riyadh City to multinationals including Pfizer, Arcadis, and KAUST.</p><p class="body-text"><strong>What sets us apart: complete independence.</strong> No conflicts of interest. Our advice serves our clients' interests only.</p><div style="margin-top:2.5rem;"><a href="about.html" class="btn-outline">Learn More About Us</a></div></div></div></section>
+<section class="section border-b"><p class="section-label">Clients & Partners</p><p style="font-family:var(--sans);font-size:11px;color:var(--ink4);margin-bottom:2rem;">Hover over any logo to see the scope of work delivered</p><div class="flip-grid"><div class="flip-card"><div class="flip-inner"><div class="flip-front"><img src="../logos/hamat_group.png" alt="HAMAT Group"/><p class="flip-sector">Commercial Real Estate</p></div><div class="flip-back"><p class="flip-service">Capital readiness advisory and financial statements review to support strategic growth positioning</p><p class="flip-name">HAMAT Group</p></div></div></div><div class="flip-card"><div class="flip-inner"><div class="flip-front"><img src="../logos/rwashin.png" alt="Rwashin Compounds"/><p class="flip-sector">Residential Development</p></div><div class="flip-back"><p class="flip-service">Market research and competitive landscape analysis to inform investment and development decisions</p><p class="flip-name">Rwashin Compounds</p></div></div></div><div class="flip-card"><div class="flip-inner"><div class="flip-front"><img src="../logos/nabed.png" alt="NABED"/><p class="flip-sector">Digital Healthcare</p></div><div class="flip-back"><p class="flip-service">Business restructuring, corporate strategy development, and financial planning advisory</p><p class="flip-name">NABED</p></div></div></div><div class="flip-card"><div class="flip-inner"><div class="flip-front"><img src="../logos/cfg.png" alt="CFG Environment"/><p class="flip-sector">Environment & Energy</p></div><div class="flip-back"><p class="flip-service">Market entry research and performance management strategy</p><p class="flip-name">CFG Environment</p></div></div></div><div class="flip-card"><div class="flip-inner"><div class="flip-front"><img src="../logos/wisework.png" alt="WiseWork"/><p class="flip-sector">Business Technology</p></div><div class="flip-back"><p class="flip-service">Capital readiness advisory, corporate strategy, and stakeholder engagement framework</p><p class="flip-name">WiseWork</p></div></div></div><div class="flip-card"><div class="flip-inner"><div class="flip-front"><img src="../logos/idv.png" alt="IDV"/><p class="flip-sector">Venture Studio & Tech</p></div><div class="flip-back"><p class="flip-service">Performance management strategy, business restructuring, and financial advisory</p><p class="flip-name">IDV</p></div></div></div><div class="flip-card"><div class="flip-inner"><div class="flip-front"><img src="../logos/samatwaiq.png" alt="SAMA TWAIQ"/><p class="flip-sector">Drone Technology</p></div><div class="flip-back"><p class="flip-service">Performance management strategy, business restructuring, and financial advisory</p><p class="flip-name">SAMA TWAIQ</p></div></div></div><div class="flip-card"><div class="flip-inner"><div class="flip-front"><img src="../logos/invdro.png" alt="Invdro"/><p class="flip-sector">Drone Inventory Tech</p></div><div class="flip-back"><p class="flip-service">Performance management strategy, business restructuring, and financial advisory</p><p class="flip-name">Invdro</p></div></div></div><div class="flip-card"><div class="flip-inner"><div class="flip-front"><img src="../logos/hamat_academy.png" alt="HAMAT Academy"/><p class="flip-sector">Education & Training</p></div><div class="flip-back"><p class="flip-service">Corporate strategy development and institutional growth planning</p><p class="flip-name">HAMAT Academy</p></div></div></div><div class="flip-card"><div class="flip-inner"><div class="flip-front"><img src="../logos/baljurashi.png" alt="Baljurashi Boulevard"/><p class="flip-sector">Real Estate & Tourism</p></div><div class="flip-back"><p class="flip-service">Market research and capital readiness advisory to support project investment positioning</p><p class="flip-name">Baljurashi Boulevard</p></div></div></div><div class="flip-card"><div class="flip-inner"><div class="flip-front"><img src="../logos/sju.png" alt="Saudi Journalists Association"/><p class="flip-sector">Media & Journalism</p></div><div class="flip-back"><p class="flip-service">Financial advisory, business restructuring, and financial planning</p><p class="flip-name">Saudi Journalists Association</p></div></div></div><div class="flip-card"><div class="flip-inner"><div class="flip-front"><img src="../logos/ascor.png" alt="Ascor Co."/><p class="flip-sector">Investment & Business</p></div><div class="flip-back"><p class="flip-service">Long-term strategic and financial advisory</p><p class="flip-name">Ascor Co.</p></div></div></div><div class="flip-card"><div class="flip-inner"><div class="flip-front"><img src="../logos/alsouri.png" alt="Alsouri Co."/><p class="flip-sector">Contracting & Real Estate</p></div><div class="flip-back"><p class="flip-service">Strategic advisory, financial feasibility studies, and divestment advisory</p><p class="flip-name">Alsouri Co.</p></div></div></div><div class="flip-card"><div class="flip-inner"><div class="flip-front"><img src="../logos/maysan.png" alt="Maysan Co."/><p class="flip-sector">Investment & Business</p></div><div class="flip-back"><p class="flip-service">Long-term strategic and financial advisory</p><p class="flip-name">Maysan Co.</p></div></div></div></div></section>
+<section class="section reveal"><div style="display:grid;grid-template-columns:1fr 1fr;gap:7rem;align-items:start;"><div><p class="section-label">Start a Conversation</p><h2 class="section-h2">Every successful<br>engagement begins with<br><em>an honest conversation.</em></h2><p class="body-text" style="max-width:360px;margin-bottom:1.5rem;">Whether you're considering restructuring, need a retained CFO, or want a feasibility study — start here.</p><a href="https://wa.me/966544174408" style="display:inline-flex;align-items:center;gap:1rem;border:0.5px solid rgba(74,88,64,0.38);padding:13px 22px;color:var(--accent);font-family:var(--sans);font-size:10px;letter-spacing:0.2em;text-transform:uppercase;" target="_blank"><div style="width:20px;height:20px;background:var(--accent2);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:9px;color:var(--bg);font-weight:500;">W</div>WhatsApp Direct</a></div>
+<form novalidate style="display:flex;flex-direction:column;gap:2rem;">
+<div class="form-field"><label class="form-label">Your Name</label><input class="form-input" type="text" placeholder="As you prefer to be addressed"/></div>
+<div class="form-field"><label class="form-label">Company</label><input class="form-input" type="text" placeholder="Optional"/></div>
+<div class="form-field"><label class="form-label">Subject</label><input class="form-input" type="text" placeholder="How can we help?"/></div>
+<div class="form-field"><label class="form-label">Preferred Contact</label><input class="form-input" type="text" placeholder="Email or phone number"/></div>
+<button type="submit" class="btn-primary" style="align-self:flex-end;">Submit</button>
+<div class="form-success"><p>Received. We'll be in touch within 24 hours.</p></div>
+</form></div></section></main>
+<footer><div class="footer border-t"><div><p class="ft-logo-name">Finsphere</p><p style="font-family:'Cairo',sans-serif;font-size:14px;color:var(--ink4);direction:rtl;margin-bottom:1.25rem;">فنسفير</p><p class="ft-desc">Financial, management, and strategic advisory for businesses and investors in Saudi Arabia.</p><p class="ft-reg">SCOPA License #030080 · CR 7054180695 · Jeddah</p></div><div class="ft-col"><p class="ft-col-h">Services</p><a href="../en/services.html">Financial Advisory</a><a href="../en/services.html">Management Consulting</a><a href="../en/services.html">Governance & Growth</a></div><div class="ft-col"><p class="ft-col-h">Firm</p><a href="../en/about.html">About Us</a><a href="../en/industries.html">Industries</a><a href="../en/insights.html">Insights</a><a href="../en/careers.html">Careers</a></div><div class="ft-col"><p class="ft-col-h">Connect</p><a href="../en/contact.html">Inquiry</a><a href="https://wa.me/966544174408">WhatsApp</a><a href="../index.html" style="font-family:'Cairo',sans-serif;font-size:13px;direction:rtl;">العربية</a></div></div><div class="footer-bottom"><p class="ft-legal">© 2025 Finsphere Advisory Co. SCOPA License #030080. CR 7054180695. Not investment advice.</p><p style="font-family:'DM Sans',sans-serif;font-size:10px;color:var(--ink4);">Privacy · Terms</p></div></footer>
 <script>
 document.addEventListener('DOMContentLoaded',()=>{
   const nav=document.querySelector('.nav');
@@ -268,8 +189,7 @@ document.addEventListener('DOMContentLoaded',()=>{
   document.querySelectorAll('.mobile-menu a').forEach(l=>l.addEventListener('click',()=>menu&&menu.classList.remove('open')));
   const io=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target);}});},{threshold:0.1});
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
-  const form=document.querySelector('.inq-form');
-  if(form){form.addEventListener('submit',e=>{e.preventDefault();const btn=form.querySelector('[type=submit]');const s=form.querySelector('.form-success');if(btn)btn.style.display='none';if(s)s.style.display='block';});}
+  document.querySelectorAll('form').forEach(form=>{form.addEventListener('submit',e=>{e.preventDefault();const btn=form.querySelector('[type=submit]');const s=form.querySelector('.form-success');if(btn)btn.style.display='none';if(s)s.style.display='block';});});
 });
 </script>
 </body>

@@ -3,257 +3,148 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>فاين سفير — خدمات الاستشارة المالية الخاصة</title>
-<meta name="description" content="خدمات الاستشارة المالية الخاصة لفاين سفير — هيكلة الثروات، الاستثمار، الاستمرارية العائلية."/>
+<title>خدماتنا — فنسفير</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=DM+Sans:wght@300;400;500&family=Cairo:wght@300;400;500&display=swap');
-:root {
-  --bg:#EAE6DF; --bg1:#E2DDD6; --bg2:#D9D4CC; --bg3:#CEC8BE;
-  --ink:#1A1814; --ink2:#2C2925; --ink3:#504B43; --ink4:#9A9488;
-  --accent:#4A5840; --accent2:#2D3A24; --accent3:rgba(74,88,64,0.15);
-  --copper:#8B7355; --line:rgba(26,24,20,0.1); --line2:rgba(26,24,20,0.18);
-  --serif:'Cormorant Garamond',Georgia,serif; --sans:'DM Sans',system-ui,sans-serif;
-  --arabic:'Cairo',sans-serif; --ease:cubic-bezier(0.25,0.1,0.25,1);
-}
-*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
-html{scroll-behavior:smooth;}
-body{background:var(--bg);color:var(--ink);font-family:var(--arabic);font-weight:300;-webkit-font-smoothing:antialiased;direction:rtl;}
-a{text-decoration:none;color:inherit;}
-button{cursor:pointer;border:none;background:transparent;}
+:root{--bg:#EAE6DF;--bg1:#E2DDD6;--bg2:#D9D4CC;--ink:#1A1814;--ink2:#2C2925;--ink3:#504B43;--ink4:#9A9488;--accent:#4A5840;--accent2:#2D3A24;--accent3:rgba(74,88,64,0.15);--line:rgba(26,24,20,0.1);--line2:rgba(26,24,20,0.18);--serif:'Cormorant Garamond',Georgia,serif;--sans:'DM Sans',system-ui,sans-serif;--arabic:'Cairo',sans-serif;--ease:cubic-bezier(0.25,0.1,0.25,1);}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased;}
+body.ar{font-family:var(--arabic);font-weight:300;direction:rtl;}
+body.en{font-family:var(--sans);font-weight:300;direction:ltr;}
+a{text-decoration:none;color:inherit;}button{cursor:pointer;border:none;background:transparent;}
 .reveal{opacity:0;transform:translateY(18px);transition:opacity 0.75s var(--ease),transform 0.75s var(--ease);}
 .reveal.visible{opacity:1;transform:none;}
 .delay-1{transition-delay:0.1s;}.delay-2{transition-delay:0.22s;}.delay-3{transition-delay:0.38s;}
-.nav{display:flex;justify-content:space-between;align-items:center;padding:1.75rem 5rem;border-bottom:0.5px solid var(--line);background:var(--bg);position:sticky;top:0;z-index:200;transition:background 0.3s;}
+.nav{display:flex;justify-content:space-between;align-items:center;padding:1.5rem 5rem;border-bottom:0.5px solid var(--line);background:var(--bg);position:sticky;top:0;z-index:200;transition:background 0.3s;}
 .nav.scrolled{background:rgba(234,230,223,0.96);backdrop-filter:blur(10px);}
-.nav-logo img{height:52px;width:auto;}
-.nav-links{display:flex;gap:2.5rem;align-items:center;flex-direction:row-reverse;}
-.nav-links a{font-family:var(--arabic);font-size:14px;font-weight:300;color:var(--ink3);transition:color 0.2s;}
+.nav-logo img{height:64px;width:auto;}
+.nav-links{display:flex;gap:2rem;align-items:center;}
+body.ar .nav-links{flex-direction:row-reverse;}
+.nav-links a{font-weight:300;color:var(--ink3);transition:color 0.2s;}
+body.en .nav-links a{font-family:var(--sans);font-size:10px;letter-spacing:0.18em;text-transform:uppercase;}
+body.ar .nav-links a{font-family:var(--arabic);font-size:13px;}
 .nav-links a:hover,.nav-links a.active{color:var(--ink);}
 .nav-right{display:flex;align-items:center;gap:1.25rem;}
-.btn-nav{font-family:var(--arabic);font-size:13px;font-weight:400;border:0.5px solid var(--accent);color:var(--accent);padding:8px 20px;transition:background 0.2s,color 0.2s;}
+.btn-nav{font-weight:400;border:0.5px solid var(--accent);color:var(--accent);padding:8px 20px;transition:background 0.2s,color 0.2s;}
+body.en .btn-nav{font-family:var(--sans);font-size:9px;letter-spacing:0.22em;text-transform:uppercase;}
+body.ar .btn-nav{font-family:var(--arabic);font-size:13px;}
 .btn-nav:hover{background:var(--accent);color:var(--bg);}
-.lang-switch{font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--ink4);font-family:var(--sans);transition:color 0.2s;}
+.lang-switch{font-size:10px;letter-spacing:0.15em;text-transform:uppercase;color:var(--ink4);transition:color 0.2s;}
+body.ar .lang-switch{font-family:var(--sans);}
+body.en .lang-switch{font-family:var(--arabic);font-size:13px;letter-spacing:0;}
 .lang-switch:hover{color:var(--accent);}
 .nav-mobile-toggle{display:none;flex-direction:column;gap:5px;padding:6px;}
 .nav-mobile-toggle span{width:22px;height:0.5px;background:var(--ink2);display:block;}
 .mobile-menu{display:none;position:fixed;inset:0;background:var(--bg);z-index:300;flex-direction:column;justify-content:center;align-items:center;gap:2.5rem;}
 .mobile-menu.open{display:flex;}
-.mobile-menu a{font-family:var(--arabic);font-size:28px;font-weight:300;color:var(--ink3);}
+body.ar .mobile-menu a{font-family:var(--arabic);font-size:26px;font-weight:300;color:var(--ink3);}
+body.en .mobile-menu a{font-family:var(--serif);font-size:26px;font-weight:300;color:var(--ink3);letter-spacing:0.04em;}
 .mobile-menu a:hover{color:var(--ink);}
-.mobile-menu-close{position:absolute;top:2rem;left:2rem;font-size:22px;color:var(--ink3);}
+.mobile-menu-close{position:absolute;top:2rem;font-size:22px;color:var(--ink3);}
+body.ar .mobile-menu-close{left:2rem;}body.en .mobile-menu-close{right:2rem;}
 .section{padding:7rem 5rem;}
-.section-label{font-family:var(--arabic);font-size:11px;color:var(--accent);margin-bottom:3.5rem;display:flex;align-items:center;gap:1.25rem;flex-direction:row-reverse;justify-content:flex-end;}
-.section-label::after{content:'';width:26px;height:0.5px;background:var(--accent);}
-.section-h2{font-family:var(--arabic);font-size:clamp(28px,3.5vw,42px);font-weight:300;line-height:1.5;color:var(--ink);margin-bottom:2.5rem;}
+.section-label{font-size:11px;color:var(--accent);margin-bottom:3.5rem;display:flex;align-items:center;gap:1.25rem;}
+body.ar .section-label{font-family:var(--arabic);flex-direction:row-reverse;justify-content:flex-end;}
+body.ar .section-label::after{content:'';width:26px;height:0.5px;background:var(--accent);}
+body.en .section-label{font-family:var(--sans);font-size:9px;letter-spacing:0.5em;text-transform:uppercase;}
+body.en .section-label::before{content:'';width:26px;height:0.5px;background:var(--accent);}
+body.ar .section-h2{font-family:var(--arabic);font-size:clamp(28px,3.5vw,42px);font-weight:300;line-height:1.5;color:var(--ink);margin-bottom:2.5rem;}
+body.en .section-h2{font-family:var(--serif);font-size:clamp(30px,3.5vw,44px);font-weight:300;line-height:1.12;letter-spacing:-0.01em;color:var(--ink);margin-bottom:2.5rem;}
 .section-h2 em{font-style:italic;color:var(--ink4);}
-.body-text{font-family:var(--arabic);font-size:15px;line-height:2.1;color:var(--ink3);}
-.body-text strong{color:var(--ink2);font-weight:400;}
-.body-text+.body-text{margin-top:1.5rem;}
-.border-b{border-bottom:0.5px solid var(--line);}
-.border-t{border-top:0.5px solid var(--line);}
-.bg1{background:var(--bg1);}
-.btn-primary{background:var(--accent2);color:var(--bg);padding:13px 32px;font-family:var(--arabic);font-size:14px;font-weight:500;display:inline-block;transition:background 0.25s;border:none;cursor:pointer;}
+body.ar .body-text{font-family:var(--arabic);font-size:15px;line-height:2.1;color:var(--ink3);}
+body.en .body-text{font-family:var(--sans);font-size:13.5px;line-height:2.0;color:var(--ink3);}
+.body-text strong{color:var(--ink2);font-weight:400;}.body-text+.body-text{margin-top:1.5rem;}
+.border-b{border-bottom:0.5px solid var(--line);}.border-t{border-top:0.5px solid var(--line);}.bg1{background:var(--bg1);}
+.btn-primary{background:var(--accent2);color:var(--bg);padding:13px 32px;font-weight:500;display:inline-block;transition:background 0.25s;border:none;cursor:pointer;}
+body.ar .btn-primary{font-family:var(--arabic);font-size:14px;}
+body.en .btn-primary{font-family:var(--sans);font-size:10px;letter-spacing:0.26em;text-transform:uppercase;}
 .btn-primary:hover{background:var(--accent);}
-.btn-outline{border:0.5px solid var(--line2);color:var(--ink3);padding:12px 30px;font-family:var(--arabic);font-size:14px;display:inline-block;transition:border-color 0.25s,color 0.25s;}
+.btn-outline{border:0.5px solid var(--line2);color:var(--ink3);padding:12px 30px;display:inline-block;transition:border-color 0.25s,color 0.25s;}
+body.ar .btn-outline{font-family:var(--arabic);font-size:14px;}
+body.en .btn-outline{font-family:var(--sans);font-size:10px;letter-spacing:0.22em;text-transform:uppercase;}
 .btn-outline:hover{border-color:var(--accent);color:var(--accent);}
-.btn-text{font-family:var(--arabic);font-size:13px;color:var(--ink3);display:inline-flex;align-items:center;gap:10px;transition:color 0.2s;flex-direction:row-reverse;}
-.btn-text::before{content:'←';color:var(--accent);font-size:15px;}
-.footer{padding:5rem 5rem 3.5rem;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;direction:rtl;}
-.ft-logo-name{font-family:var(--serif);font-size:18px;font-weight:300;letter-spacing:0.1em;color:var(--ink);margin-bottom:4px;}
-.ft-logo-ar{font-family:var(--arabic);font-size:14px;color:var(--ink4);direction:rtl;margin-bottom:1.25rem;}
-.ft-desc{font-family:var(--arabic);font-size:12px;line-height:1.9;color:var(--ink3);max-width:240px;margin-bottom:1.5rem;}
-.ft-reg{font-family:var(--arabic);font-size:10px;color:rgba(74,88,64,0.55);}
-.ft-col-h{font-family:var(--arabic);font-size:11px;color:var(--ink4);margin-bottom:1.25rem;}
-.ft-col a{display:block;font-family:var(--arabic);font-size:13px;color:var(--ink3);margin-bottom:0.8rem;transition:color 0.2s;}
-.ft-col a:hover{color:var(--accent);}
-.footer-bottom{padding:2rem 5rem;border-top:0.5px solid var(--line);display:flex;justify-content:space-between;align-items:center;flex-direction:row-reverse;}
-.ft-legal{font-family:var(--arabic);font-size:11px;color:var(--ink4);line-height:1.8;max-width:580px;}
+body.ar .page-hero h1{font-family:var(--arabic);font-size:clamp(36px,5vw,60px);font-weight:300;line-height:1.4;color:var(--ink);}
+body.en .page-hero h1{font-family:var(--serif);font-size:clamp(40px,5vw,64px);font-weight:300;line-height:1.05;letter-spacing:-0.015em;color:var(--ink);}
 .page-hero{padding:6rem 5rem 5rem;border-bottom:0.5px solid var(--line);}
-.page-hero-label{font-family:var(--arabic);font-size:11px;color:var(--accent);margin-bottom:2rem;display:flex;align-items:center;gap:1.25rem;flex-direction:row-reverse;justify-content:flex-end;}
-.page-hero-label::after{content:'';width:26px;height:0.5px;background:var(--accent);}
-.page-hero h1{font-family:var(--arabic);font-size:clamp(36px,5vw,60px);font-weight:300;line-height:1.4;color:var(--ink);}
 .page-hero h1 em{font-style:italic;color:var(--ink4);}
-.page-hero p{font-family:var(--arabic);font-size:15px;line-height:2.1;color:var(--ink3);max-width:580px;margin-top:2rem;}
-@media(max-width:1100px){
-  .nav,.section,.footer{padding-left:3rem;padding-right:3rem;}
-  .page-hero{padding:4rem 3rem;}
-}
-@media(max-width:768px){
-  .nav{padding:1.5rem;}
-  .nav-links,.nav-right .btn-nav{display:none;}
-  .nav-mobile-toggle{display:flex;}
-  .section{padding:4rem 1.5rem;}
-  .footer{grid-template-columns:1fr;padding:3rem 1.5rem;}
-  .footer-bottom{padding:1.5rem;flex-direction:column;align-items:flex-start;gap:1rem;}
-  .page-hero{padding:3rem 1.5rem;}
-}
-
-.nav-links a.active{color:var(--ink);font-weight:400;}
+body.ar .page-hero p{font-family:var(--arabic);font-size:15px;line-height:2.1;color:var(--ink3);max-width:600px;margin-top:2rem;}
+body.en .page-hero p{font-family:var(--sans);font-size:13.5px;line-height:2.0;color:var(--ink3);max-width:600px;margin-top:2rem;}
+.page-hero-label{font-size:11px;color:var(--accent);margin-bottom:2rem;display:flex;align-items:center;gap:1.25rem;}
+body.ar .page-hero-label{font-family:var(--arabic);flex-direction:row-reverse;justify-content:flex-end;}
+body.ar .page-hero-label::after{content:'';width:26px;height:0.5px;background:var(--accent);}
+body.en .page-hero-label{font-family:var(--sans);font-size:9px;letter-spacing:0.5em;text-transform:uppercase;}
+body.en .page-hero-label::before{content:'';width:26px;height:0.5px;background:var(--accent);}
+.flip-grid{display:flex;flex-wrap:wrap;gap:1px;background:var(--line);}
+.flip-card{flex:1;min-width:180px;background:var(--bg);perspective:1000px;cursor:pointer;}
+.flip-inner{position:relative;width:100%;padding-bottom:120%;transition:transform 0.6s;transform-style:preserve-3d;}
+.flip-card:hover .flip-inner{transform:rotateY(180deg);}
+.flip-front,.flip-back{position:absolute;inset:0;backface-visibility:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:1.5rem;text-align:center;gap:0.6rem;}
+.flip-front{background:var(--bg);}
+.flip-back{background:var(--accent2);transform:rotateY(180deg);}
+.flip-front img{height:48px;width:auto;max-width:110px;object-fit:contain;}
+body.ar .flip-sector{font-family:var(--arabic);font-size:10px;letter-spacing:0;color:var(--accent);}
+body.en .flip-sector{font-family:var(--sans);font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent);}
+body.ar .flip-service{font-family:var(--arabic);font-size:11px;line-height:1.7;color:var(--bg);}
+body.en .flip-service{font-family:var(--sans);font-size:10px;line-height:1.7;color:var(--bg);}
+body.ar .flip-name{font-family:var(--arabic);font-size:10px;color:rgba(234,230,223,0.55);margin-top:0.5rem;}
+body.en .flip-name{font-family:var(--sans);font-size:9px;letter-spacing:0.1em;color:rgba(234,230,223,0.55);margin-top:0.5rem;}
+.service-card{padding:3rem;border:0.5px solid var(--line);transition:background 0.3s;}
+.service-card:hover{background:var(--bg1);}
+.service-num{font-family:var(--serif);font-size:11px;color:rgba(74,88,64,0.4);margin-bottom:2rem;letter-spacing:0.3em;}
+body.ar .service-title{font-family:var(--arabic);font-size:22px;font-weight:300;color:var(--ink);margin-bottom:1rem;line-height:1.4;}
+body.en .service-title{font-family:var(--serif);font-size:24px;font-weight:300;color:var(--ink);margin-bottom:1rem;line-height:1.2;}
+body.ar .service-desc{font-family:var(--arabic);font-size:13px;line-height:2;color:var(--ink3);margin-bottom:1.5rem;}
+body.en .service-desc{font-family:var(--sans);font-size:12px;line-height:1.9;color:var(--ink3);margin-bottom:1.5rem;}
+.service-items{display:flex;flex-direction:column;gap:0.6rem;}
+body.ar .service-item{font-family:var(--arabic);font-size:12px;color:var(--ink4);display:flex;align-items:center;gap:8px;flex-direction:row-reverse;justify-content:flex-end;}
+body.en .service-item{font-family:var(--sans);font-size:11px;color:var(--ink4);display:flex;align-items:center;gap:8px;}
+.service-dot{width:3px;height:3px;background:var(--accent);border-radius:50%;flex-shrink:0;}
+.industry-card{padding:2.5rem;border:0.5px solid var(--line);margin:-0.5px 0 0 -0.5px;transition:background 0.3s;}
+.industry-card:hover{background:var(--bg1);}
+.industry-icon{font-size:28px;margin-bottom:1.25rem;}
+body.ar .industry-title{font-family:var(--arabic);font-size:18px;font-weight:300;color:var(--ink);margin-bottom:0.75rem;}
+body.en .industry-title{font-family:var(--serif);font-size:20px;font-weight:300;color:var(--ink);margin-bottom:0.75rem;}
+body.ar .industry-desc{font-family:var(--arabic);font-size:13px;line-height:1.9;color:var(--ink3);}
+body.en .industry-desc{font-family:var(--sans);font-size:12px;line-height:1.9;color:var(--ink3);}
+.footer{padding:5rem 5rem 3.5rem;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;}
+body.ar .footer{direction:rtl;}
+.ft-logo-name{font-family:var(--serif);font-size:18px;font-weight:300;letter-spacing:0.1em;color:var(--ink);margin-bottom:4px;}
+body.ar .ft-desc{font-family:var(--arabic);font-size:12px;line-height:1.9;color:var(--ink3);max-width:240px;margin-bottom:1.5rem;}
+body.en .ft-desc{font-family:var(--sans);font-size:12px;line-height:1.9;color:var(--ink3);max-width:240px;margin-bottom:1.5rem;}
+body.ar .ft-reg{font-family:var(--arabic);font-size:10px;color:rgba(74,88,64,0.55);}
+body.en .ft-reg{font-family:var(--sans);font-size:9px;letter-spacing:0.22em;text-transform:uppercase;color:rgba(74,88,64,0.55);}
+body.ar .ft-col-h{font-family:var(--arabic);font-size:11px;color:var(--ink4);margin-bottom:1.25rem;}
+body.en .ft-col-h{font-family:var(--sans);font-size:9px;letter-spacing:0.38em;text-transform:uppercase;color:var(--ink4);margin-bottom:1.25rem;}
+.ft-col a{display:block;margin-bottom:0.8rem;transition:color 0.2s;color:var(--ink3);}
+body.ar .ft-col a{font-family:var(--arabic);font-size:13px;}
+body.en .ft-col a{font-family:var(--sans);font-size:12px;}
+.ft-col a:hover{color:var(--accent);}
+.footer-bottom{padding:2rem 5rem;border-top:0.5px solid var(--line);display:flex;justify-content:space-between;align-items:center;}
+body.ar .footer-bottom{flex-direction:row-reverse;}
+body.ar .ft-legal{font-family:var(--arabic);font-size:11px;color:var(--ink4);line-height:1.8;max-width:580px;}
+body.en .ft-legal{font-family:var(--sans);font-size:10px;letter-spacing:0.04em;color:var(--ink4);line-height:1.8;max-width:580px;}
+.form-field{display:flex;flex-direction:column;gap:8px;}
+body.ar .form-label{font-family:var(--arabic);font-size:11px;color:var(--ink4);}
+body.en .form-label{font-family:var(--sans);font-size:9px;letter-spacing:0.38em;text-transform:uppercase;color:var(--ink4);}
+.form-input{background:transparent;border:none;border-bottom:0.5px solid var(--line2);padding:10px 0;color:var(--ink2);outline:none;transition:border-color 0.2s;}
+body.ar .form-input{font-family:var(--arabic);font-size:14px;text-align:right;direction:rtl;}
+body.en .form-input{font-family:var(--sans);font-size:13px;}
+.form-input:focus{border-bottom-color:var(--accent);}
+.form-input::placeholder{color:var(--ink4);}
+.form-success{display:none;padding:1.5rem;border:0.5px solid rgba(74,88,64,0.35);line-height:1.9;color:var(--ink3);}
+@media(max-width:1100px){.nav,.section,.footer,.page-hero{padding-left:3rem;padding-right:3rem;}.footer{grid-template-columns:1fr 1fr;}}
+@media(max-width:768px){.nav{padding:1.5rem;}.nav-links,.nav-right .btn-nav{display:none;}.nav-mobile-toggle{display:flex;}.section{padding:4rem 1.5rem;}.page-hero{padding:3rem 1.5rem;}.footer{grid-template-columns:1fr;padding:3rem 1.5rem;}.footer-bottom{padding:1.5rem;flex-direction:column;align-items:flex-start;gap:1rem;}.flip-card{min-width:140px;}}
 </style>
 </head>
-<body>
-
-<div class="mobile-menu">
-  <button class="mobile-menu-close">✕</button>
-  <a href="index.html" >الرئيسية</a>
-  <a href="about.html" >المؤسس</a>
-  <a href="services.html" class='active'>الاستشارات</a>
-  <a href="perspectives.html" >وجهات النظر</a>
-  <a href="contact.html" >استفسار خاص</a>
-  <a href="en/index.html" style="font-family:'DM Sans',sans-serif;font-size:16px;letter-spacing:0.2em;">English</a>
-</div>
-<header>
-<nav class="nav">
-  <a href="index.html" class="nav-logo"><img src="data:image/png;base64,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" alt="FineSphere"/></a>
-  <div class="nav-links">
-    <a href="contact.html" >تواصل معنا</a>
-    <a href="perspectives.html" >وجهات النظر</a>
-    <a href="services.html" class='active'>الاستشارات</a>
-    <a href="about.html" >المؤسس</a>
-  </div>
-  <div class="nav-right">
-    <a href="en/index.html" class="lang-switch">EN</a>
-    <a href="contact.html" class="btn-nav">استفسار خاص</a>
-    <button class="nav-mobile-toggle"><span></span><span></span><span></span></button>
-  </div>
-</nav>
-</header>
+<body class="ar">
+<div class="mobile-menu"><button class="mobile-menu-close">✕</button><a href="index.html">الرئيسية</a><a href="about.html">من نحن</a><a href="services.html">خدماتنا</a><a href="industries.html">القطاعات</a><a href="insights.html">المقالات</a><a href="careers.html">الوظائف</a><a href="contact.html">تواصل معنا</a><a href="en/index.html" style="font-family:'DM Sans',sans-serif;font-size:15px;direction:ltr;letter-spacing:0.1em;">English</a></div>
+<header><nav class="nav"><a href="index.html" class="nav-logo"><img src="logos/finsphere.png" alt="فنسفير"/></a><div class="nav-links"><a href="index.html" >الرئيسية</a><a href="about.html" >من نحن</a><a href="services.html" class='active'>خدماتنا</a><a href="industries.html" >القطاعات</a><a href="insights.html" >المقالات</a><a href="careers.html" >الوظائف</a><a href="contact.html" >تواصل معنا</a></div><div class="nav-right"><a href="en/index.html" class="lang-switch">EN</a><a href="contact.html" class="btn-nav">استفسار</a><button class="nav-mobile-toggle"><span></span><span></span><span></span></button></div></nav></header>
 <main>
-<section class="page-hero border-b">
-  <p class="page-hero-label">خدمات الاستشارة</p>
-  <h1>استشارة مُصمَّمة<br>لتعقيدات ثروتك.<br><em>لا لغيرها.</em></h1>
-  <p>كل خدمة مبنية على فهم عميق للأسواق السعودية والخليجية، وتُقدَّم بمنهجية مؤسسية واهتمام شخصي كامل.</p>
-</section>
-
-<section class="section border-b">
-  <div style="display:grid;grid-template-columns:repeat(2,1fr);">
-    <div class="reveal" style="padding:3rem;border-left:0.5px solid var(--line);border-bottom:0.5px solid var(--line);">
-      <p style="font-family:var(--arabic);font-size:11px;color:rgba(74,88,64,0.5);margin-bottom:2rem;">٠١</p>
-      <h3 style="font-family:var(--arabic);font-size:22px;font-weight:300;color:var(--ink);margin-bottom:1.25rem;line-height:1.5;">هيكلة الثروات الخاصة</h3>
-      <p style="font-family:var(--arabic);font-size:14px;line-height:2;color:var(--ink3);margin-bottom:1.5rem;">تصميم محافظ استثمارية مخصصة للعائلات والأفراد ذوي الاحتياجات المتعددة — عبر الحدود، متعددة الأجيال، أو متوافقة مع أحكام الشريعة.</p>
-      <ul style="list-style:none;display:flex;flex-direction:column;gap:0.7rem;">
-        <li style="font-family:var(--arabic);font-size:12px;color:var(--ink4);display:flex;align-items:center;gap:8px;flex-direction:row-reverse;justify-content:flex-end;"><span style="width:4px;height:4px;background:var(--accent);border-radius:50%;flex-shrink:0;display:block;"></span>تصميم المحافظ الاستثمارية الشخصية</li>
-        <li style="font-family:var(--arabic);font-size:12px;color:var(--ink4);display:flex;align-items:center;gap:8px;flex-direction:row-reverse;justify-content:flex-end;"><span style="width:4px;height:4px;background:var(--accent);border-radius:50%;flex-shrink:0;display:block;"></span>التخطيط متعدد الأجيال</li>
-        <li style="font-family:var(--arabic);font-size:12px;color:var(--ink4);display:flex;align-items:center;gap:8px;flex-direction:row-reverse;justify-content:flex-end;"><span style="width:4px;height:4px;background:var(--accent);border-radius:50%;flex-shrink:0;display:block;"></span>إدارة الأصول عبر الحدود</li>
-      </ul>
-    </div>
-    <div class="reveal delay-1" style="padding:3rem;border-bottom:0.5px solid var(--line);">
-      <p style="font-family:var(--arabic);font-size:11px;color:rgba(74,88,64,0.5);margin-bottom:2rem;">٠٢</p>
-      <h3 style="font-family:var(--arabic);font-size:22px;font-weight:300;color:var(--ink);margin-bottom:1.25rem;line-height:1.5;">الاستشارة الاستثمارية المستقلة</h3>
-      <p style="font-family:var(--arabic);font-size:14px;line-height:2;color:var(--ink3);margin-bottom:1.5rem;">تحليل مستقل للأسواق ورؤية استراتيجية عبر الأسواق السعودية والخليجية والعالمية. تشكّلت من الداخل. تُقدَّم بلا أجندة.</p>
-      <ul style="list-style:none;display:flex;flex-direction:column;gap:0.7rem;">
-        <li style="font-family:var(--arabic);font-size:12px;color:var(--ink4);display:flex;align-items:center;gap:8px;flex-direction:row-reverse;justify-content:flex-end;"><span style="width:4px;height:4px;background:var(--accent);border-radius:50%;flex-shrink:0;display:block;"></span>تحليل الأسواق المحلية والإقليمية</li>
-        <li style="font-family:var(--arabic);font-size:12px;color:var(--ink4);display:flex;align-items:center;gap:8px;flex-direction:row-reverse;justify-content:flex-end;"><span style="width:4px;height:4px;background:var(--accent);border-radius:50%;flex-shrink:0;display:block;"></span>النمذجة المالية وتقييم المخاطر</li>
-        <li style="font-family:var(--arabic);font-size:12px;color:var(--ink4);display:flex;align-items:center;gap:8px;flex-direction:row-reverse;justify-content:flex-end;"><span style="width:4px;height:4px;background:var(--accent);border-radius:50%;flex-shrink:0;display:block;"></span>استشارة مستقلة خالية من تعارض المصالح</li>
-      </ul>
-    </div>
-    <div class="reveal" style="padding:3rem;border-left:0.5px solid var(--line);border-bottom:0.5px solid var(--line);">
-      <p style="font-family:var(--arabic);font-size:11px;color:rgba(74,88,64,0.5);margin-bottom:2rem;">٠٣</p>
-      <h3 style="font-family:var(--arabic);font-size:22px;font-weight:300;color:var(--ink);margin-bottom:1.25rem;line-height:1.5;">استمرارية الثروة العائلية</h3>
-      <p style="font-family:var(--arabic);font-size:14px;line-height:2;color:var(--ink3);margin-bottom:1.5rem;">هياكل الحوكمة وأطر التخطيط للخلافة ونقل الثروة عبر الأجيال. بالدقة والتقدير الذي يستحقه الإرث.</p>
-      <ul style="list-style:none;display:flex;flex-direction:column;gap:0.7rem;">
-        <li style="font-family:var(--arabic);font-size:12px;color:var(--ink4);display:flex;align-items:center;gap:8px;flex-direction:row-reverse;justify-content:flex-end;"><span style="width:4px;height:4px;background:var(--accent);border-radius:50%;flex-shrink:0;display:block;"></span>تخطيط الخلافة والإرث</li>
-        <li style="font-family:var(--arabic);font-size:12px;color:var(--ink4);display:flex;align-items:center;gap:8px;flex-direction:row-reverse;justify-content:flex-end;"><span style="width:4px;height:4px;background:var(--accent);border-radius:50%;flex-shrink:0;display:block;"></span>هياكل حوكمة الثروة العائلية</li>
-        <li style="font-family:var(--arabic);font-size:12px;color:var(--ink4);display:flex;align-items:center;gap:8px;flex-direction:row-reverse;justify-content:flex-end;"><span style="width:4px;height:4px;background:var(--accent);border-radius:50%;flex-shrink:0;display:block;"></span>حماية الأصول وإعادة الهيكلة</li>
-      </ul>
-    </div>
-    <div class="reveal delay-1" style="padding:3rem;border-bottom:0.5px solid var(--line);">
-      <p style="font-family:var(--arabic);font-size:11px;color:rgba(74,88,64,0.5);margin-bottom:2rem;">٠٤</p>
-      <h3 style="font-family:var(--arabic);font-size:22px;font-weight:300;color:var(--ink);margin-bottom:1.25rem;line-height:1.5;">استشارات أصحاب الأعمال</h3>
-      <p style="font-family:var(--arabic);font-size:14px;line-height:2;color:var(--ink3);margin-bottom:1.5rem;">لرواد الأعمال وأصحاب الشركات العائلية عند تنقلهم في أحداث السيولة والخلافة وفصل الثروة الشخصية عن الأعمال.</p>
-      <ul style="list-style:none;display:flex;flex-direction:column;gap:0.7rem;">
-        <li style="font-family:var(--arabic);font-size:12px;color:var(--ink4);display:flex;align-items:center;gap:8px;flex-direction:row-reverse;justify-content:flex-end;"><span style="width:4px;height:4px;background:var(--accent);border-radius:50%;flex-shrink:0;display:block;"></span>فصل الثروة الشخصية عن الأعمال</li>
-        <li style="font-family:var(--arabic);font-size:12px;color:var(--ink4);display:flex;align-items:center;gap:8px;flex-direction:row-reverse;justify-content:flex-end;"><span style="width:4px;height:4px;background:var(--accent);border-radius:50%;flex-shrink:0;display:block;"></span>إدارة أحداث السيولة والخروج</li>
-        <li style="font-family:var(--arabic);font-size:12px;color:var(--ink4);display:flex;align-items:center;gap:8px;flex-direction:row-reverse;justify-content:flex-end;"><span style="width:4px;height:4px;background:var(--accent);border-radius:50%;flex-shrink:0;display:block;"></span>الاستشارة في صفقات الاندماج والاستحواذ</li>
-      </ul>
-    </div>
-    <div class="reveal" style="padding:3rem;border-left:0.5px solid var(--line);">
-      <p style="font-family:var(--arabic);font-size:11px;color:rgba(74,88,64,0.5);margin-bottom:2rem;">٠٥</p>
-      <h3 style="font-family:var(--arabic);font-size:22px;font-weight:300;color:var(--ink);margin-bottom:1.25rem;line-height:1.5;">الاستثمار المتوافق مع الشريعة</h3>
-      <p style="font-family:var(--arabic);font-size:14px;line-height:2;color:var(--ink3);margin-bottom:1.5rem;">فحص شرعي دقيق للأسهم والصكوك والأصول الحقيقية والهياكل الخاصة. مع إشراف علمي مناسب وامتثال كامل.</p>
-      <ul style="list-style:none;display:flex;flex-direction:column;gap:0.7rem;">
-        <li style="font-family:var(--arabic);font-size:12px;color:var(--ink4);display:flex;align-items:center;gap:8px;flex-direction:row-reverse;justify-content:flex-end;"><span style="width:4px;height:4px;background:var(--accent);border-radius:50%;flex-shrink:0;display:block;"></span>فحص وتصفية الأدوات الاستثمارية</li>
-        <li style="font-family:var(--arabic);font-size:12px;color:var(--ink4);display:flex;align-items:center;gap:8px;flex-direction:row-reverse;justify-content:flex-end;"><span style="width:4px;height:4px;background:var(--accent);border-radius:50%;flex-shrink:0;display:block;"></span>الصكوك والأصول البديلة الشرعية</li>
-        <li style="font-family:var(--arabic);font-size:12px;color:var(--ink4);display:flex;align-items:center;gap:8px;flex-direction:row-reverse;justify-content:flex-end;"><span style="width:4px;height:4px;background:var(--accent);border-radius:50%;flex-shrink:0;display:block;"></span>إشراف علمي وامتثال تنظيمي</li>
-      </ul>
-    </div>
-    <div class="reveal delay-1" style="padding:3rem;">
-      <p style="font-family:var(--arabic);font-size:11px;color:rgba(74,88,64,0.5);margin-bottom:2rem;">٠٦</p>
-      <h3 style="font-family:var(--arabic);font-size:22px;font-weight:300;color:var(--ink);margin-bottom:1.25rem;line-height:1.5;">الوصول إلى رأس المال الاستراتيجي</h3>
-      <p style="font-family:var(--arabic);font-size:14px;line-height:2;color:var(--ink3);margin-bottom:1.5rem;">وصول مُنتقى إلى الأسهم الخاصة والأصول الحقيقية والفرص المتوافقة مع رؤية 2030 للعملاء المؤهلين.</p>
-      <ul style="list-style:none;display:flex;flex-direction:column;gap:0.7rem;">
-        <li style="font-family:var(--arabic);font-size:12px;color:var(--ink4);display:flex;align-items:center;gap:8px;flex-direction:row-reverse;justify-content:flex-end;"><span style="width:4px;height:4px;background:var(--accent);border-radius:50%;flex-shrink:0;display:block;"></span>فرص الأسهم الخاصة المنتقاة</li>
-        <li style="font-family:var(--arabic);font-size:12px;color:var(--ink4);display:flex;align-items:center;gap:8px;flex-direction:row-reverse;justify-content:flex-end;"><span style="width:4px;height:4px;background:var(--accent);border-radius:50%;flex-shrink:0;display:block;"></span>الأصول الحقيقية ومشاريع رؤية 2030</li>
-        <li style="font-family:var(--arabic);font-size:12px;color:var(--ink4);display:flex;align-items:center;gap:8px;flex-direction:row-reverse;justify-content:flex-end;"><span style="width:4px;height:4px;background:var(--accent);border-radius:50%;flex-shrink:0;display:block;"></span>فرص مقتصرة على العملاء المؤهلين</li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-<section class="section border-b bg1 reveal">
-  <div style="display:grid;grid-template-columns:1fr 1fr;gap:7rem;align-items:center;">
-    <div>
-      <p class="section-label">نموذج الاستشارة</p>
-      <h2 class="section-h2">كيف نعمل<br><em>معك؟</em></h2>
-    </div>
-    <div>
-      <div style="display:flex;flex-direction:column;gap:0;">
-        <div style="display:flex;align-items:flex-start;gap:1.5rem;padding:1.5rem 0;border-bottom:0.5px solid var(--line);flex-direction:row-reverse;">
-          <div style="font-family:var(--serif);font-size:28px;color:var(--accent);opacity:0.4;flex-shrink:0;">١</div>
-          <div><p style="font-family:var(--arabic);font-size:14px;color:var(--ink2);margin-bottom:0.5rem;">محادثة أولى</p><p style="font-family:var(--arabic);font-size:12px;color:var(--ink3);line-height:1.9;">نتعرف على وضعك وأهدافك دون أي التزامات.</p></div>
-        </div>
-        <div style="display:flex;align-items:flex-start;gap:1.5rem;padding:1.5rem 0;border-bottom:0.5px solid var(--line);flex-direction:row-reverse;">
-          <div style="font-family:var(--serif);font-size:28px;color:var(--accent);opacity:0.4;flex-shrink:0;">٢</div>
-          <div><p style="font-family:var(--arabic);font-size:14px;color:var(--ink2);margin-bottom:0.5rem;">تقييم شامل</p><p style="font-family:var(--arabic);font-size:12px;color:var(--ink3);line-height:1.9;">تحليل معمّق لوضعك المالي وأهدافك على المدى البعيد.</p></div>
-        </div>
-        <div style="display:flex;align-items:flex-start;gap:1.5rem;padding:1.5rem 0;flex-direction:row-reverse;">
-          <div style="font-family:var(--serif);font-size:28px;color:var(--accent);opacity:0.4;flex-shrink:0;">٣</div>
-          <div><p style="font-family:var(--arabic);font-size:14px;color:var(--ink2);margin-bottom:0.5rem;">خطة مخصصة</p><p style="font-family:var(--arabic);font-size:12px;color:var(--ink3);line-height:1.9;">استراتيجية مصممة خصيصًا لك، تُنفَّذ معك خطوة بخطوة.</p></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section reveal" style="text-align:center;">
-  <p class="section-label" style="justify-content:center;">ابدأ</p>
-  <h2 class="section-h2" style="text-align:center;">كل رحلة استثمارية ناجحة<br>تبدأ بمحادثة <em>صريحة.</em></h2>
-  <a href="contact.html" class="btn-primary">تواصل معنا</a>
-</section>
-</main>
-
-<footer>
-  <div class="footer border-t">
-    <div>
-      <p class="ft-logo-name">FineSphere</p>
-      <p class="ft-logo-ar">فاين سفير · للاستشارات المالية الخاصة</p>
-      <p class="ft-desc">استشارة ثروية خاصة للعائلات وأصحاب الأعمال والمستثمرين في المملكة العربية السعودية ودول الخليج.</p>
-      <p class="ft-reg">ترخيص SCOPA رقم 030080 · السجل التجاري 7054180695 · جدة</p>
-    </div>
-    <div class="ft-col"><p class="ft-col-h">الاستشارات</p>
-      <a href="services.html">هيكلة الثروات</a>
-      <a href="services.html">الاستشارة الاستثمارية</a>
-      <a href="services.html">استمرارية الثروة العائلية</a>
-      <a href="services.html">الاستثمار الشرعي</a>
-    </div>
-    <div class="ft-col"><p class="ft-col-h">الشركة</p>
-      <a href="about.html">المؤسس</a>
-      <a href="index.html">فلسفتنا</a>
-      <a href="perspectives.html">وجهات النظر</a>
-      <a href="contact.html">الإفصاح التنظيمي</a>
-    </div>
-    <div class="ft-col"><p class="ft-col-h">تواصل</p>
-      <a href="contact.html">استفسار خاص</a>
-      <a href="https://wa.me/966544174408">واتساب مباشر</a>
-      <a href="en/index.html" style="font-family:'DM Sans',sans-serif;font-size:11px;letter-spacing:0.15em;">English Version</a>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <p class="ft-legal">© 2025 شركة فينسفير للاستشارات. مرخّصة من SCOPA رقم 030080. السجل التجاري 7054180695. جميع الخدمات الاستشارية خاضعة للامتثال التنظيمي. المعلومات الواردة في هذا الموقع هي لأغراض إعلامية فقط ولا تُعدّ نصيحة استثمارية. الاستثمار ينطوي على مخاطر. فاين سفير ليست مسؤولة عن أي قرارات استثمارية تُتخذ بناءً على محتوى هذا الموقع.</p>
-    <p style="font-family:'DM Sans',sans-serif;font-size:10px;color:var(--ink4);letter-spacing:0.1em;">Privacy · Disclosure · Terms</p>
-  </div>
-</footer>
-
+<section class="page-hero border-b"><p class="page-hero-label">خدماتنا</p><h1>ثلاثة محاور.<br>عمق واحد.<br><em>نتائج قابلة للقياس.</em></h1><p>نقدم خدماتنا عبر ثلاثة محاور رئيسية مترابطة — مصممة لتلبية احتياجات الشركات والمستثمرين في السوق السعودي.</p></section>
+<section class="section border-b"><div style="display:grid;grid-template-columns:repeat(3,1fr);gap:0;"><div class="service-card reveal"><p class="service-num">01</p><h3 class="service-title">الاستشارات المالية</h3><p class="service-desc">نقدم استشارات مالية مستقلة وعميقة مبنية على خبرة مؤسسية حقيقية في اسواق المملكة والخليج.</p><div class="service-items"><div class="service-item"><div class="service-dot"></div><span>التخطيط المالي واعداد الميزانيات</span></div><div class="service-item"><div class="service-dot"></div><span>تحليل الجدوى الاقتصادية</span></div><div class="service-item"><div class="service-dot"></div><span>هيكلة الصفقات والاستثمارات</span></div><div class="service-item"><div class="service-dot"></div><span>ادارة المخاطر المالية</span></div><div class="service-item"><div class="service-dot"></div><span>التقارير المالية والامتثال</span></div></div></div><div class="service-card reveal delay-1"><p class="service-num">02</p><h3 class="service-title">استشارات الادارة</h3><p class="service-desc">نساعد المؤسسات على تحقيق اهدافها الاستراتيجية من خلال حلول ادارية متكاملة ومبنية على البيانات.</p><div class="service-items"><div class="service-item"><div class="service-dot"></div><span>اعادة هيكلة الاعمال</span></div><div class="service-item"><div class="service-dot"></div><span>استراتيجية الاداء المؤسسي</span></div><div class="service-item"><div class="service-dot"></div><span>بحوث السوق والتحليل التنافسي</span></div><div class="service-item"><div class="service-dot"></div><span>ادارة اصحاب المصلحة</span></div><div class="service-item"><div class="service-dot"></div><span>التخطيط الاستراتيجي طويل المدى</span></div></div></div><div class="service-card reveal delay-2"><p class="service-num">03</p><h3 class="service-title">الحوكمة والنمو</h3><p class="service-desc">نبني انظمة حوكمة راسخة ونضع خارطة طريق للنمو المستدام لمؤسسات القطاع الخاص والعائلي.</p><div class="service-items"><div class="service-item"><div class="service-dot"></div><span>هياكل حوكمة الشركات</span></div><div class="service-item"><div class="service-dot"></div><span>تخطيط الخلافة والاستمرارية</span></div><div class="service-item"><div class="service-dot"></div><span>مستشار مالي متكامل (CFO افتراضي)</span></div><div class="service-item"><div class="service-dot"></div><span>استراتيجية المستثمرين وجاهزية رأس المال</span></div><div class="service-item"><div class="service-dot"></div><span>ادارة الاصول والتجريد</span></div></div></div></div></section>
+<section class="section border-b bg1 reveal"><div style="display:grid;grid-template-columns:1fr 1fr;gap:7rem;align-items:center;"><div><p class="section-label">المستشار المالي المتكامل</p><h2 class="section-h2">CFO افتراضي<br>لشركتك<br><em>بكفاءة عالية.</em></h2><p class="body-text">نموذج الاحتفاظ بالمستشار يتيح لك الحصول على مستشار مالي واستراتيجي متكامل دون الحاجة لتعيين موظف دائم.</p></div><div style="display:flex;flex-direction:column;gap:0;"><div style="display:flex;align-items:flex-start;gap:1.5rem;padding:1.5rem 0;border-bottom:0.5px solid var(--line);flex-direction:row-reverse;"><div style="font-family:var(--serif);font-size:28px;color:var(--accent);opacity:0.4;flex-shrink:0;">١</div><div><p style="font-family:var(--arabic);font-size:14px;color:var(--ink2);margin-bottom:0.5rem;">مستشار مالي متكامل</p><p style="font-family:var(--arabic);font-size:12px;color:var(--ink3);line-height:1.9;">اشراف مستمر على الاداء المالي وادارة التقارير والميزانيات.</p></div></div><div style="display:flex;align-items:flex-start;gap:1.5rem;padding:1.5rem 0;border-bottom:0.5px solid var(--line);flex-direction:row-reverse;"><div style="font-family:var(--serif);font-size:28px;color:var(--accent);opacity:0.4;flex-shrink:0;">٢</div><div><p style="font-family:var(--arabic);font-size:14px;color:var(--ink2);margin-bottom:0.5rem;">مستشار استراتيجي دائم</p><p style="font-family:var(--arabic);font-size:12px;color:var(--ink3);line-height:1.9;">دعم القرارات الاستراتيجية الكبرى واستشارات مجلس الادارة.</p></div></div><div style="display:flex;align-items:flex-start;gap:1.5rem;padding:1.5rem 0;border-bottom:0.5px solid var(--line);flex-direction:row-reverse;"><div style="font-family:var(--serif);font-size:28px;color:var(--accent);opacity:0.4;flex-shrink:0;">٣</div><div><p style="font-family:var(--arabic);font-size:14px;color:var(--ink2);margin-bottom:0.5rem;">مستشار المستثمرين</p><p style="font-family:var(--arabic);font-size:12px;color:var(--ink3);line-height:1.9;">دعم علاقات المستثمرين واستراتيجية جاهزية رأس المال.</p></div></div></div></div></section>
+<section class="section reveal" style="text-align:center;"><h2 class="section-h2" style="text-align:center;">تحتاج استشارة<br><em>متخصصة؟</em></h2><a href="contact.html" class="btn-primary">ابدا المحادثة</a></section></main>
+<footer><div class="footer border-t"><div><p class="ft-logo-name">Finsphere</p><p style="font-family:var(--arabic);font-size:14px;color:var(--ink4);margin-bottom:1.25rem;">فنسفير</p><p class="ft-desc">استشارات مالية وادارية واستراتيجية للشركات والمستثمرين في المملكة.</p><p class="ft-reg">ترخيص SCOPA رقم 030080 · السجل التجاري 7054180695 · جدة</p></div><div class="ft-col"><p class="ft-col-h">الخدمات</p><a href="services.html">الاستشارات المالية</a><a href="services.html">استشارات الادارة</a><a href="services.html">الحوكمة والنمو</a></div><div class="ft-col"><p class="ft-col-h">الشركة</p><a href="about.html">من نحن</a><a href="industries.html">القطاعات</a><a href="insights.html">المقالات</a><a href="careers.html">الوظائف</a></div><div class="ft-col"><p class="ft-col-h">تواصل</p><a href="contact.html">استفسار</a><a href="https://wa.me/966544174408">واتساب</a><a href="en/index.html" style="font-family:'DM Sans',sans-serif;font-size:11px;letter-spacing:0.15em;">English</a></div></div><div class="footer-bottom"><p class="ft-legal">© 2025 شركة فنسفير. ترخيص SCOPA رقم 030080. المعلومات لاغراض اعلامية فقط ولا تعد نصيحة استثمارية.</p><p style="font-family:'DM Sans',sans-serif;font-size:10px;color:var(--ink4);">Privacy · Terms</p></div></footer>
 <script>
 document.addEventListener('DOMContentLoaded',()=>{
   const nav=document.querySelector('.nav');
@@ -266,8 +157,7 @@ document.addEventListener('DOMContentLoaded',()=>{
   document.querySelectorAll('.mobile-menu a').forEach(l=>l.addEventListener('click',()=>menu&&menu.classList.remove('open')));
   const io=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target);}});},{threshold:0.1});
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
-  const form=document.querySelector('.inq-form');
-  if(form){form.addEventListener('submit',e=>{e.preventDefault();const btn=form.querySelector('[type=submit]');const s=form.querySelector('.form-success');if(btn)btn.style.display='none';if(s)s.style.display='block';});}
+  document.querySelectorAll('form').forEach(form=>{form.addEventListener('submit',e=>{e.preventDefault();const btn=form.querySelector('[type=submit]');const s=form.querySelector('.form-success');if(btn)btn.style.display='none';if(s)s.style.display='block';});});
 });
 </script>
 </body>

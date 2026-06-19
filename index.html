@@ -77,7 +77,7 @@ body.en .page-hero-label::before{content:'';width:26px;height:0.5px;background:v
 .flip-grid{display:flex;flex-wrap:wrap;gap:1px;background:var(--line);}
 .flip-card{flex:1;min-width:180px;background:var(--bg);perspective:1000px;cursor:pointer;}
 .flip-inner{position:relative;width:100%;padding-bottom:120%;transition:transform 0.6s;transform-style:preserve-3d;}
-.flip-card:hover .flip-inner{transform:rotateY(180deg);}
+.flip-card:hover .flip-inner{transform:rotateY(0deg);}
 .flip-front,.flip-back{position:absolute;inset:0;backface-visibility:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:1.5rem;text-align:center;gap:0.6rem;}
 .flip-front{background:var(--bg);}
 .flip-back{background:var(--accent2);transform:rotateY(180deg);}
@@ -208,5 +208,6 @@ document.addEventListener('DOMContentLoaded',()=>{
 </script>
 </body>
 </html> 
+ 
  
  
